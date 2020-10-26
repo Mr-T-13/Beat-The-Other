@@ -4,56 +4,61 @@
 
 GDD – Documento de diseño del videojuego
 
-Grupo 1
+##Grupo 1
+Integrantes:
+- Adrián Ramírez Martín.
+- David Lugo-Viña Pérez.
+- Borja Martínez Requena.
+- Jesús J. Robles Jiménez.
 
 #
 ## Índice
 
-[1.- High Concept 2](#_Toc54629558)
+[1.- High Concept](#_Toc54629558)
 
-[2.- Conceptos destacados 2](#_Toc54629559)
+[2.- Conceptos destacados](#_Toc54629559)
 
-[2.1.- Género 2](#_Toc54629560)
+[2.1.- Género](#_Toc54629560)
 
-[2.2.- Estilo visual 2](#_Toc54629561)
+[2.2.- Estilo visual](#_Toc54629561)
 
-[2.3.- Propósito y público objetivo 2](#_Toc54629562)
+[2.3.- Propósito y público objetivo](#_Toc54629562)
 
-[3.- Diseño narrativo 2](#_Toc54629563)
+[3.- Diseño narrativo](#_Toc54629563)
 
-[3.1.- Historia 2](#_Toc54629564)
+[3.1.- Historia](#_Toc54629564)
 
-[3.2.- World Description Document 3](#_Toc54629565)
+[3.2.- World Description Document](#_Toc54629565)
 
-[3.3.- Character Description Document 3](#_Toc54629566)
+[3.3.- Character Description Document](#_Toc54629566)
 
-[4.- Personajes 4](#_Toc54629567)
+[4.- Personajes](#_Toc54629567)
 
-[5.- Gameplay 5](#_Toc54629568)
+[5.- Gameplay](#_Toc54629568)
 
-[5.1.- GameFlow 5](#_Toc54629569)
+[5.1.- GameFlow](#_Toc54629569)
 
-[5.2.- Condición de victoria y derrota 5](#_Toc54629570)
+[5.2.- Condición de victoria y derrota](#_Toc54629570)
 
-[6.- Arte 5](#_Toc54629571)
+[6.- Arte](#_Toc54629571)
 
-[7.- Interfaz de usuario y controles de juego 6](#_Toc54629572)
+[7.- Interfaz de usuario y controles de juego](#_Toc54629572)
 
-[7.1.- Interfaz de usuario 6](#_Toc54629573)
+[7.1.- Interfaz de usuario](#_Toc54629573)
 
-[7.2.- Controles de juego 7](#_Toc54629574)
+[7.2.- Controles de juego](#_Toc54629574)
 
-[8.- Sonido y música 8](#_Toc54629575)
+[8.- Sonido y música](#_Toc54629575)
 
-[9.- Conectividad en Red 8](#_Toc54629576)
+[9.- Conectividad en Red](#_Toc54629576)
 
-[10.- Planes para el futuro 8](#_Toc54629577)
+[10.- Planes para el futuro](#_Toc54629577)
 
 #
 
 # 1.- High Concept
 
-&quot;_Beat the Other&quot;_es un juego frenético en el que, a través de unos personajes vandálicos, nos enfrentaremos a otros jugadores en una pelea a muerte en escenarios urbanos y callejeros. Tendrán que demostrar quién consigue hacer los mejores combos y así hacerse con el control del barrio.
+&quot;Beat the Other&quot;es un juego frenético en el que, a través de unos personajes vandálicos, nos enfrentaremos a otros jugadores en una pelea a muerte en escenarios urbanos y callejeros. Tendrán que demostrar quién consigue hacer los mejores combos y así hacerse con el control del barrio.
 
 # 2.- Conceptos destacados
 

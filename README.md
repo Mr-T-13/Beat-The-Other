@@ -4,12 +4,13 @@
 
 GDD – Documento de diseño del videojuego
 
-##Grupo 1
+Grupo 1
 Integrantes:
 - Adrián Ramírez Martín.
 - David Lugo-Viña Pérez.
 - Borja Martínez Requena.
 - Jesús J. Robles Jiménez.
+TRELLO: https://trello.com/b/vb3j1QJ0/juegos-en-red
 
 #
 ## Índice

@@ -1,12 +1,12 @@
 <html>
     <head>
-        <script src="//cdn.jsdelivr.net/npm/phaser@3.24.1/dist/phaser.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/phaser@3.24.1/dist/phaser.js"></script>
     </head>
     <body>
         <script>
             //VARIABLES
             var config={
-                type: phaser.AUTO,
+                type: Phaser.AUTO,
                 width: 800,
                 height: 600,
                 physics: {},
@@ -17,18 +17,16 @@
                 }
             }
 
-            var game= new phaser.game(config);
+            var game= new Phaser.Game(config);
 
             var fondo;
             //FUNCIONES 
 
             function preload (){
-                this.load.image('Yacuza',"resources/img/characters/Yacuza/Yacuza_Pose_1.png");
+                this.load.image('Yacuza','resources/img/characters/Yacuza/Yacuza_Pose_1.png');
             }
             function create ()
             {
-                //fondo.create(config.width,config.height,"rgba(200,50,3,0.5"));
-                //game.stage.backgroundColor="#4488AA";
                 this.add.image(400,300,'Yacuza'); // X e Y de la imagen.
             }
 

@@ -9,7 +9,12 @@
                 type: Phaser.AUTO,
                 width: 800,
                 height: 600,
-                physics: {},
+                physics: {
+                    default: 'arcade',
+                    arcade: {
+                        gravity: {y : 0}
+                    }
+                },
                 scene: {
                     preload: preload, //carga los recursos que necesitamos para nuestro juego
                     create: create,
@@ -20,19 +25,32 @@
             var game= new Phaser.Game(config);
 
             var fondo;
+            var player;
             //FUNCIONES 
 
             function preload (){
-                this.load.image('Yacuza','Yacuza_Pose_1.png');
+                //this.load.image('Yacuza','../resources/img/characters/Yacuza/Yacuza_Pose_1.png');
+                this.load.spritesheet('Yacuza',
+                    '../resources/img/characters/Yacuza/Yacuza_Animacion_2_SpriteSheet.png',
+                    {frameWidth: 256, frameHeight: 256}
+                );
             }
             function create ()
             {
-                this.add.image(400,300,'Yacuza'); // X e Y de la imagen.
+                //this.add.image(400,300,'Yacuza'); // X e Y de la imagen.
+                player = this.physics.add.sprite(256, 256, 'Yacuza');
+                
+                this.anims.create({
+                    key: 'animacion',
+                    frames: this.anims.generateFrameNumbers('Yacuza', {start: 0, end: 5}),
+                    frameRate: 5,
+                    repeat: -1
+                });
             }
 
             function update ()
             {
-
+                player.anims.play('animacion', true);
             }
 
 

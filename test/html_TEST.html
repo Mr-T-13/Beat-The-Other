@@ -26,6 +26,8 @@
 
             var fondo;
             var player;
+            var contador;
+            var combo;
             //FUNCIONES 
 
             function preload (){
@@ -51,9 +53,44 @@
             function update ()
             {
                 player.anims.play('animacion', true);
+
+                //GameLoop en proceso
+                if(contador == 4)
+                {
+                    contador = 0;
+                    combo = GenerarCombo();
+                }
+                this.add.sprite(200, 200, combo[contador].sprite);
+                if(this.input.keyboard.isDown(combo[contador].key))
+                {
+                    contador++;
+                    //etc
+                }
             }
 
+            function Tecla(key, damage, animation, sonido, sprite) //Generador de Teclas
+            {
+                this.key = key;
+                this.damage = damage;
+                this.animation = animation;
+                this.sonido = sonido;
+                this.sprite = sprite;
+            }
 
+            var W = new Tecla(Phaser.keyboard.W, 1, 'animacion'); //Inicializar cada tecla que se vaya a usar
+            var A = new Tecla(Phaser.keyboard.A, 1, 'animacion');
+            var S = new Tecla(Phaser.keyboard.S, 1, 'animacion');
+            var D = new Tecla(Phaser.keyboard.D, 1, 'animacion');
+
+            var teclasJugador1 = [W,A,S,D]; //Array de teclas que usa el jugador 1
+
+            function GenerarCombo() //Crea un array donde guarda el combo generado aleatoriamente con las teclas creadas
+            {
+                for (let i = 0; i < 4; i++) {
+                    var random = Phaser.Math.RandomDataGenerator.integerInRange(0, 3);
+                    combo[i] = teclasJugador1[random];
+                }
+            }
 
         </script>
     </body>

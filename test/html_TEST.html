@@ -28,17 +28,29 @@
             var player;
             var contador;
             var combo;
+            var teclasJugador1;
+            
             //FUNCIONES 
-
             function preload (){
-                //this.load.image('Yacuza','../resources/img/characters/Yacuza/Yacuza_Pose_1.png');
+                
+                //Carga de los sprites de los botones
+                this.load.image('W','W.jpg');
+                this.load.image('A','A.jpg');
+                this.load.image('S','S.jpg');
+                this.load.image('D','D.png');
+
+                //Carga del spite de Yacuza
                 this.load.spritesheet('Yacuza',
                     '../resources/img/characters/Yacuza/Yacuza_Animacion_2_SpriteSheet.png',
                     {frameWidth: 256, frameHeight: 256}
                 );
+
+                //Carga imagen del background
+                this.load.image('background', 'Fondo prueba.jpg');
             }
             function create ()
             {
+                this.add.image(400, 300, 'background');
                 //this.add.image(400,300,'Yacuza'); // X e Y de la imagen.
                 player = this.physics.add.sprite(256, 256, 'Yacuza');
                 
@@ -48,46 +60,64 @@
                     frameRate: 5,
                     repeat: -1
                 });
+
+                //Inicializar cada tecla que se vaya a usar
+                var W = new Tecla(this.input.keyboard.addKey('W'), 1, 'W'); 
+                var A = new Tecla(this.input.keyboard.addKey('A'), 1, 'A');
+                var S = new Tecla(this.input.keyboard.addKey('S'), 1, 'S');
+                var D = new Tecla(this.input.keyboard.addKey('D'), 1, 'D');
+                
+                //Array de teclas que usa el jugador 1
+                teclasJugador1 = [W,A,S,D]; 
+
+                contador = 4;
+                combo = [];
+
             }
 
             function update ()
             {
-                player.anims.play('animacion', true);
-
                 //GameLoop en proceso
                 if(contador == 4)
                 {
                     contador = 0;
-                    combo = GenerarCombo();
+                    GenerarCombo(combo);
                 }
-                this.add.sprite(200, 200, combo[contador].sprite);
-                if(this.input.keyboard.isDown(combo[contador].key))
+                var tempSprite = this.add.sprite(300, 300, combo[contador].sprite);
+
+                //Añadir lo que ocurre cuando vas haciendo combos seguidos
+                //Añadir que si pulsas una tecla que no sea la correcta se genere un combo nuevo y te penalice de alguna forma
+                
+                if(combo[contador].key.isDown)
                 {
+                    //Averiguar como borrar los sprites de los botones ya pulsados
+
+                    //console.log(tempSprite);
+                    //tempSprite.setActive(false).setVisible(false);
+                    //tempSprite.destroy(true, true);
+                    //tempSprite = null;
+                    //console.log(tempSprite);
                     contador++;
-                    //etc
                 }
+                
+                player.anims.play('animacion', true);
             }
 
-            function Tecla(key, damage, animation, sonido, sprite) //Generador de Teclas
+            //Generador de Teclas
+            function Tecla(key, damage, sprite, sonido, animation) 
             {
                 this.key = key;
                 this.damage = damage;
-                this.animation = animation;
-                this.sonido = sonido;
                 this.sprite = sprite;
+                this.sonido = sonido;
+                this.animation = animation;
             }
 
-            var W = new Tecla(Phaser.keyboard.W, 1, 'animacion'); //Inicializar cada tecla que se vaya a usar
-            var A = new Tecla(Phaser.keyboard.A, 1, 'animacion');
-            var S = new Tecla(Phaser.keyboard.S, 1, 'animacion');
-            var D = new Tecla(Phaser.keyboard.D, 1, 'animacion');
-
-            var teclasJugador1 = [W,A,S,D]; //Array de teclas que usa el jugador 1
-
-            function GenerarCombo() //Crea un array donde guarda el combo generado aleatoriamente con las teclas creadas
+            //Crea un array donde guarda el combo generado aleatoriamente con las teclas creadas
+            function GenerarCombo(combo) 
             {
                 for (let i = 0; i < 4; i++) {
-                    var random = Phaser.Math.RandomDataGenerator.integerInRange(0, 3);
+                    var random = Phaser.Math.Between(0, 3);
                     combo[i] = teclasJugador1[random];
                 }
             }

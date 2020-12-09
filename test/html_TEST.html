@@ -7,8 +7,8 @@
             //VARIABLES
             var config={
                 type: Phaser.AUTO,
-                width: 800,
-                height: 600,
+                width: 810,
+                height: 810,
                 physics: {
                     default: 'arcade',
                     arcade: {
@@ -26,18 +26,24 @@
 
             var fondo;
             var player;
-            var contador;
             var combo;
+            var comboBoton;
+            var comboContador;
             var teclasJugador1;
+            var spritesBotones;
+
+            var posBoton1X = 100;
+            var posBoton1Y = 600;
+            var posNextBoton = 75;
             
             //FUNCIONES 
             function preload (){
                 
                 //Carga de los sprites de los botones
-                this.load.image('W','W.jpg');
-                this.load.image('A','A.jpg');
-                this.load.image('S','S.jpg');
-                this.load.image('D','D.png');
+                this.load.image('W','../resources/img/Buttons/Boton_Amarillo.png');
+                this.load.image('A','../resources/img/Buttons/Boton_Azul.png');
+                this.load.image('S','../resources/img/Buttons/Boton_Verde.png');
+                this.load.image('D','../resources/img/Buttons/Boton_Naranja.png');
 
                 //Carga del spite de Yacuza
                 this.load.spritesheet('Yacuza',
@@ -50,9 +56,11 @@
             }
             function create ()
             {
-                this.add.image(400, 300, 'background');
-                //this.add.image(400,300,'Yacuza'); // X e Y de la imagen.
-                player = this.physics.add.sprite(256, 256, 'Yacuza');
+                var bg = this.add.image(0, 0, 'background');
+                bg.setOrigin(0,0);
+                bg.setScale(1.5);
+
+                player = this.physics.add.sprite(300, 720, 'Yacuza');
                 
                 this.anims.create({
                     key: 'animacion',
@@ -62,66 +70,83 @@
                 });
 
                 //Inicializar cada tecla que se vaya a usar
-                var W = new Tecla(this.input.keyboard.addKey('W'), 1, 'W'); 
-                var A = new Tecla(this.input.keyboard.addKey('A'), 1, 'A');
-                var S = new Tecla(this.input.keyboard.addKey('S'), 1, 'S');
-                var D = new Tecla(this.input.keyboard.addKey('D'), 1, 'D');
+                var W = new Tecla(this.input.keyboard.addKey('W'), 1, 'W', 'W'); 
+                var A = new Tecla(this.input.keyboard.addKey('A'), 1, 'A', 'A');
+                var S = new Tecla(this.input.keyboard.addKey('S'), 1, 'S', 'S');
+                var D = new Tecla(this.input.keyboard.addKey('D'), 1, 'D', 'D');
                 
                 //Array de teclas que usa el jugador 1
                 teclasJugador1 = [W,A,S,D]; 
 
-                contador = 4;
+                comboBoton = 4;
                 combo = [];
-
+                spritesBotones = [];
             }
 
             function update ()
-            {
+            {   
                 //GameLoop en proceso
-                if(contador == 4)
+                if(comboBoton == 4)
                 {
-                    contador = 0;
-                    GenerarCombo(combo);
+                    if(spritesBotones[0] != null)
+                    {
+                        for (let i = 0; i < 4; i++) {
+                        spritesBotones[i].destroy();
+                        }
+                        comboContador++;
+                    }
+                    comboBoton = 0;
+                    //Crea un array donde guarda el combo generado aleatoriamente con las teclas creadas
+                    for (let i = 0; i < 4; i++) {
+                        var random = Phaser.Math.Between(0, 3);
+                        combo[i] = teclasJugador1[random];
+                        spritesBotones[i] = this.add.sprite(posBoton1X + (posNextBoton * i), posBoton1Y, combo[i].sprite);
+                        spritesBotones[i].setScale(0.8);
+                        var text = this.add.text(spritesBotones[i].getCenter().x , spritesBotones[i].getCenter().y , combo[i].text, {fontSize: '32px', fill: '#000'});
+                    }
                 }
-                var tempSprite = this.add.sprite(300, 300, combo[contador].sprite);
-
-                //Añadir lo que ocurre cuando vas haciendo combos seguidos
-                //Añadir que si pulsas una tecla que no sea la correcta se genere un combo nuevo y te penalice de alguna forma
                 
-                if(combo[contador].key.isDown)
+                //Añadir lo que ocurre cuando vas haciendo combos seguidos
+                
+                if(Phaser.Input.Keyboard.JustDown(combo[comboBoton].key))
                 {
-                    //Averiguar como borrar los sprites de los botones ya pulsados
+                    spritesBotones[comboBoton].setAlpha(0.5);
 
-                    //console.log(tempSprite);
-                    //tempSprite.setActive(false).setVisible(false);
-                    //tempSprite.destroy(true, true);
-                    //tempSprite = null;
-                    //console.log(tempSprite);
-                    contador++;
+                    comboBoton++;
+                }else if(Phaser.Input.Keyboard.JustDown(teclasJugador1[0].key) || Phaser.Input.Keyboard.JustDown(teclasJugador1[1].key)
+                            || Phaser.Input.Keyboard.JustDown(teclasJugador1[2].key) || Phaser.Input.Keyboard.JustDown(teclasJugador1[3].key))
+                {
+                    //reset combo
+                    comboBoton = 0;
+                    comboContador = 0;
+                    for (let i = 0; i < 4; i++) {
+                        spritesBotones[i].destroy();
+                        }
+                    //Crea un array donde guarda el combo generado aleatoriamente con las teclas creadas
+                    for (let i = 0; i < 4; i++) {
+                        var random = Phaser.Math.Between(0, 3);
+                        combo[i] = teclasJugador1[random];
+                        spritesBotones[i] = this.add.sprite(posBoton1X + (posNextBoton * i), posBoton1Y, combo[i].sprite);
+                        spritesBotones[i].setScale(0.8);
+                        var text = this.add.text(spritesBotones[i].getCenter().x , spritesBotones[i].getCenter().y , combo[i].text, {fontSize: '32px', fill: '#000'});
+                    }
+
+                    //penalizacion 
                 }
                 
                 player.anims.play('animacion', true);
             }
 
             //Generador de Teclas
-            function Tecla(key, damage, sprite, sonido, animation) 
+            function Tecla(key, damage, sprite, text, sonido, animation) 
             {
                 this.key = key;
                 this.damage = damage;
                 this.sprite = sprite;
+                this.text = text;
                 this.sonido = sonido;
                 this.animation = animation;
             }
-
-            //Crea un array donde guarda el combo generado aleatoriamente con las teclas creadas
-            function GenerarCombo(combo) 
-            {
-                for (let i = 0; i < 4; i++) {
-                    var random = Phaser.Math.Between(0, 3);
-                    combo[i] = teclasJugador1[random];
-                }
-            }
-
         </script>
     </body>
 </html>

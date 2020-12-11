@@ -23,4 +23,9 @@ function Player()
     var combo; //Array que guarda las teclas que tiene que pulsar
     var comboBoton; //Índice del combo
     var comboContador; //Nº de combos seguidos (racha)
+    var spritesBotones; //Array de los sprites de los botones del combo
+    var spritesLetras; //Array de las tipografías
+    var life;
+    var lifeBar;
+    var lifeStatus;
 }

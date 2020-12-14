@@ -156,7 +156,7 @@ Al tener la intención de representar distintas culturas, además de incluir los
 
 Se busca actualizar el estilo característico de los juegos de lucha asociados a kimono, cinturón, etc. Y llevarlos a un nuevo ambiente a la vez que se mezcla con elementos culturales de distintas partes.
 
-![Alt text](relative/path/to/img.jpg?raw=true "Title")
+![Alt text](resources/img/Characters/Yacuza/Yacuza_Animacion_1.png?raw=true "Title")
 
 # 7.- Interfaz de usuario y controles de juego
 

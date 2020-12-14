@@ -156,10 +156,14 @@ Al tener la intención de representar distintas culturas, además de incluir los
 
 Se busca actualizar el estilo característico de los juegos de lucha asociados a kimono, cinturón, etc. Y llevarlos a un nuevo ambiente a la vez que se mezcla con elementos culturales de distintas partes.
 
-## 6.1.- Yacuza
-![](resources/img/Characters/Yacuza/Yacuza_Animacion_1.png)
+## 6.1.- Personajes
 
-# 7.- Interfaz de usuario y controles de juego
+### 6.1.1- Yacuza
+![](resources/img/Characters/Yacuza/Yacuza_Pose_1.png)
+Su imagen está basada en los Yacuzas representados en cuadros antiguos donde estos solían llevar dragones tatuados en el cuerpo. 
+Se ha optado por el pelo largo para imitar a los Yacuzas de representados en el arte, pero con coleta para actualizarlo y ofrecer algo distinto.
+También se ha optado por un cinturon rojo para hacer referencia a su peligro, superioridad y alto conocimiento en artes marciales dado que el cinturon rojo es el usado para representar el nivel más alto, por encima del negro.
+Finalmente para el pantalón se ha optado por seguir un patrón imitando el Yin Yang que, aunque es de procedencia china, sirve para explicitar los ideales del personaje dado que busca mantener el honor, pero a cualquier coste siendo estas dos ideas opuestas porque el hacer de todo para ganar no es algo honorable. Esto se asemeja al concepto del Yin Yang, dos ideas opuestas que conviven en una persona
 
 ## 7.1.- Interfaz de usuario
 

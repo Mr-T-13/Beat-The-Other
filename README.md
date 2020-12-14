@@ -43,17 +43,23 @@ TRELLO: https://trello.com/b/vb3j1QJ0/juegos-en-red
 
 [6.- Arte](#_Toc54629571)
 
-[7.- Interfaz de usuario y controles de juego](#_Toc54629572)
+[6.1 - Personajes](#_Toc54629572)
 
-[7.1.- Interfaz de usuario](#_Toc54629573)
+[6.1.1 - Yacuza](#_Toc54629573)
 
-[7.2.- Controles de juego](#_Toc54629574)
+[6.1.2 - Irlandes](#_Toc54629574)
 
-[8.- Sonido y música](#_Toc54629575)
+[7.- Interfaz de usuario y controles de juego](#_Toc54629575)
 
-[9.- Conectividad en Red](#_Toc54629576)
+[7.1.- Interfaz de usuario](#_Toc54629576)
 
-[10.- Planes para el futuro](#_Toc54629577)
+[7.2.- Controles de juego](#_Toc54629577)
+
+[8.- Sonido y música](#_Toc54629578)
+
+[9.- Conectividad en Red](#_Toc54629579)
+
+[10.- Planes para el futuro](#_Toc54629580)
 
 #
 
@@ -107,7 +113,7 @@ Descripción: Experto Aikido, Karate, Kendo y Yabusame, entre otras disciplinas,
 
 
 - Nombre: Joao Ferreira
-- Facción: brasileños.
+- Facción: Brasileños.
 - Basado en: Mestre Corisco.
 
 Descripción: Desde niño, Joao tuvo que pelear en las favelas para poder comer, tuvo que robar, vender droga, intimidar, dar palizas… y eso le llevó a ser el recluta estrella de Os Paulistas, la mayor banda criminal y de tráfico de drogas de Brasil. En Gangtown, Joao es el mejor luchador que tienen los brasileños. Es experto en capoeira, pero también fue instruido en lucha libre al entrar en la banda, por lo que no guarda los cánones de la capoeira puro.
@@ -115,7 +121,7 @@ Descripción: Desde niño, Joao tuvo que pelear en las favelas para poder comer,
 Su motivación no es otra que sobrevivir. Si pierde, es hombre muerto.
 
 - Nombre: Igor Volchenkov
-- Facción: rusos
+- Facción: Rusos
 - Basado en: Zangief (Street fighter)/Arnold Schwarzenegger (Danko, calor rojo)
 
 Descripción: Igor es un ex agente de la KGB, como todos los rusos de las películas que se precien. En este caso, no era un espía, era un solucionador. Su misión era hacer desaparecer los problemas, y a menudo eso implicaba acabar con alguien a puñetazos, partirle el cuello o destrozarle las costillas sin ningún miramiento.
@@ -123,7 +129,7 @@ Descripción: Igor es un ex agente de la KGB, como todos los rusos de las pelíc
 Su estilo de lucha, basado en Systema, el tradicional arte marcial ruso, se encrudeció bastante al entrar en la Bratva, olvidando uno de sus pilares principales, el autocontrol. Igor no tiene motivación. Igor sólo hace una cosa: mata.
 
 - Nombre: Josh McCloud
-- Facción: irlandeses
+- Facción: Irlandeses
 - Basado en: Conor McGregor, luchador del MMA
 
 Descripción: Antiguo luchador del circuito mundial de pesos pesados de la lucha libre, McCloud acabó en el mundo del crimen por una apuesta perdida y una deuda sin pagar. Con sus puños, patadas, llaves y giros va consiguiendo recuperar su libertad para así poder volver con su familia a Irlanda.
@@ -159,11 +165,17 @@ Se busca actualizar el estilo característico de los juegos de lucha asociados a
 ## 6.1.- Personajes
 
 ### 6.1.1- Yacuza
-![](resources/img/Characters/Yacuza/Yacuza_Pose_1.png)
+![](resources/img/Characters/Yacuza/Yacuza_Animacion_1.png)
 Su imagen está basada en los Yacuzas representados en cuadros antiguos donde estos solían llevar dragones tatuados en el cuerpo. 
 Se ha optado por el pelo largo para imitar a los Yacuzas de representados en el arte, pero con coleta para actualizarlo y ofrecer algo distinto.
 También se ha optado por un cinturon rojo para hacer referencia a su peligro, superioridad y alto conocimiento en artes marciales dado que el cinturon rojo es el usado para representar el nivel más alto, por encima del negro.
 Finalmente para el pantalón se ha optado por seguir un patrón imitando el Yin Yang que, aunque es de procedencia china, sirve para explicitar los ideales del personaje dado que busca mantener el honor, pero a cualquier coste siendo estas dos ideas opuestas porque el hacer de todo para ganar no es algo honorable. Esto se asemeja al concepto del Yin Yang, dos ideas opuestas que conviven en una persona
+
+
+### 6.1.2- Irlandes
+![](resources/img/Characters/Irlandes/Irlandes_Animacion_2.png)
+El aspecto de este personaje está asociado al estereotipo de irlandes pelirrojo combinado con un luchador de lucha libre. 
+Además, se ha querido que beba también de la cultura irlandesa como puede ser los duendes. De ahí viene su tamaño, su paleta de colores y sus pequeños detalles como los cascabeles. Además, se ha optado por darle una musculatura grande para que contraste con su tamaño.
 
 ## 7.1.- Interfaz de usuario
 

@@ -1,7 +1,9 @@
 html {
-    
-    background-color:#670098;
+    background-image: url("../resources/img/Background/Ring_recortado.png");
+    background-size: cover;
     /*
+    background-color:#670098;
+    
     background-color:#410060;
     
     background-color:#c70061;

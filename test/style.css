@@ -1,0 +1,57 @@
+html {
+    background-color:#54007c;
+}
+#cabecera {
+    height: 120px;
+}
+.titulo {
+    height: 120px;
+    display: inline-block;
+}
+/*
+#titulo_i {
+    width: 320px;
+    height: 195px;
+    position: relative;
+}
+
+#titulo_d {
+    width: 320px;
+    height: 195px;
+    position: relative;
+}
+*/
+#antorcha_i {
+    left: 0;
+    bottom: 0;
+    width: 320;
+    height: 640;
+    position: absolute;
+}
+#antorcha_d {
+    right: 0;
+    bottom: 0;
+    width: 320;
+    height: 640;
+    position: absolute;
+    /*Transformación vertical para que se vea en espejo*/
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+canvas { 
+    padding: 0; 
+    margin: auto; 
+    display: block; 
+    width: 1200px; 
+    height: 800px; 
+    position: relative; 
+    top: 0; 
+    bottom: 0; 
+    left: 0;
+    right: 0; 
+} 
+
+

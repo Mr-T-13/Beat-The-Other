@@ -22,10 +22,14 @@ function Player()
     var character;    
     var combo; //Array que guarda las teclas que tiene que pulsar
     var comboBoton; //Índice del combo
-    var comboContador; //Nº de combos seguidos (racha)
+    var multiplicador; //Nº de combos seguidos (racha)
     var spritesBotones; //Array de los sprites de los botones del combo
     var spritesLetras; //Array de las tipografías
-    var life;
-    var lifeBar;
-    var lifeStatus;
+    var life; //Vida del jugador
+    var lifeBar; //Sprite que muestra la barra de vida
+    var lifeStatus; //Frame de la barra de vida
+    var energy; //Energia del jugador
+    var energyBar; //Sprite que muestra la barra de energia
+    var energyStatus; //Frame de la barra de energia
+    var penalizacion; //Tiempo de penalizacion
 }

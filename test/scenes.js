@@ -85,6 +85,12 @@ var Street = new Phaser.Class({
         
         //Carga de la música
         this.load.audio('bgMusic', '../resources/music/street1.ogg');
+        
+        //Carga de los sonidos
+        this.load.audio('punch1', '../resources/sfx/p1.ogg');
+        this.load.audio('punch2', '../resources/sfx/p2.ogg');
+        this.load.audio('punch3', '../resources/sfx/p3.ogg');
+        this.load.audio('punch4', '../resources/sfx/p4.ogg');
     },
 
     create: function ()
@@ -130,9 +136,10 @@ var Street = new Phaser.Class({
         
         
         
-        //Carga de la música de fondo
+        //Asigna de la música de fondo y los sonidos
         music = this.sound.add('bgMusic');
         music.play();
+       
         
         
         
@@ -225,6 +232,17 @@ var Street = new Phaser.Class({
         player2.teclas.push(LEFT);
         player2.teclas.push(DOWN);
         player2.teclas.push(RIGHT);
+        
+        //Asignación de sonidos a cada tecla
+         
+        player1.teclas[0].sonido = this.sound.add('punch1');
+        player2.teclas[0].sonido = this.sound.add('punch1');
+        player1.teclas[1].sonido = this.sound.add('punch2');
+        player2.teclas[1].sonido = this.sound.add('punch2');
+        player1.teclas[2].sonido = this.sound.add('punch3');
+        player2.teclas[2].sonido = this.sound.add('punch3');
+        player1.teclas[3].sonido = this.sound.add('punch4');
+        player2.teclas[3].sonido = this.sound.add('punch4');
 
         //Activa animaciones de idle de los personajes
         player1.character.phsx.anims.play(player1.character.idle, true);
@@ -303,6 +321,7 @@ var Street = new Phaser.Class({
                 player1.spritesBotones[player1.comboBoton].setAlpha(0.5);
                 player1.spritesLetras[player1.comboBoton].setAlpha(0.5);
                 player1.character.phsx.anims.play(player1.character.punch, true); //Animacion de ataque
+                player1.teclas[player1.comboBoton].sonido.play();
 
                 if(player1.comboBoton == 3) //Si es el ultimo golpe del combo
                 {
@@ -359,6 +378,7 @@ var Street = new Phaser.Class({
                 player2.spritesBotones[player2.comboBoton].setAlpha(0.5);
                 player2.spritesLetras[player2.comboBoton].setAlpha(0.5);
                 player2.character.phsx.anims.play(player2.character.punch, true); //Animacion de ataque
+                player2.teclas[player2.comboBoton].sonido.play();
 
                 if(player2.comboBoton == 3) //Si es el ultimo golpe del combo
                 {

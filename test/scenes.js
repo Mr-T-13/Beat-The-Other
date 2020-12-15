@@ -11,17 +11,36 @@ var MainMenu = new Phaser.Class({
 
     preload: function ()
     {
-        // Insertar aquí los gráficos, música y demás.
-        //this.load.image('face', 'assets/pics/bw-face.png');
+        this.load.spritesheet('Menu', 
+            '../resources/img/Menu/Menu.png',
+            {frameWidth: 256, frameHeight: 256})
+        
+        this.load.image('Jugar','../resources/img/Menu/Jugar.png');
+        //Carga imagen del background
+        this.load.image('backgroundm', '../resources/img/background/Escenario_1.png');
+        
     },
 
     create: function ()
     {
-        //Function
+        //Carga del fondo
+        var bg = this.add.image(0, 0, 'backgroundm');
+        bg.setOrigin(0,0);
+        
+        menuSprite = this.add.sprite(600,400,'Menu');
+        menuSprite.setScale(4);
+        
+        botonJugar = this.physics.add.sprite(595,510, 'Jugar');
+        botonJugar.setInteractive();
+        botonJugar.on('pointerdown', () => { this.scene.start('Street');})
     }
 
 });
 
+
+
+
+//Escena de juego
 var Street = new Phaser.Class({
 
     Extends: Phaser.Scene,
@@ -441,5 +460,5 @@ var config={
                         gravity: {y : 0}
                     }
                 },
-                scene: [MainMenu,Street]
+                scene: [Street, MainMenu]
                 }

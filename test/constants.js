@@ -1,5 +1,11 @@
 //Posiciones comunes
 var posNextBoton = 75;
+var energyMax = 49;
+var lifeMax = 60;
+
+//Frames de referencia
+var lifeBarMaxFrame = 62;
+var energyBarMaxFrame = 51;
 
 //Posiciones Jugador 1
 var posBoton1X  = 100;
@@ -16,5 +22,5 @@ var posBoton2X  = 800;
 var posBoton2Y  = 200;
 var posP2X      = 900;
 var posP2Y      = 580;
-var posLifeP2X  = 800;
+var posLifeP2X  = 1100;
 var posLifeP2Y  = 100;

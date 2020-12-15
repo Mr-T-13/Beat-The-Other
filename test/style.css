@@ -1,26 +1,44 @@
 html {
-    background-color:#54007c;
+    background-image: url("../resources/img/Background/Ring_recortado.png");
+    background-size: cover;
+    /*
+    background-color:#670098;
+    
+    background-color:#410060;
+    
+    background-color:#c70061;
+    */
 }
 #cabecera {
+    width: 1880px;
     height: 120px;
+    display: table;
+    border: 2px solid yellow;
+    border-radius: 50px 50px 50px 50px;
+    /*
+    background-color:#670098;
+    */
+    background-color:#410060;
+    /*
+    background-color:#c70061;
+    */
+}
+.titulo img{
+    height: 110px;
+    vertical-align: middle;
 }
 .titulo {
-    height: 120px;
-    display: inline-block;
+    color: yellow;
+    font-size: 30px;
+    font-family: 'Langar', cursive;
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+    /*
+    background-color: #c70061;
+    border-radius: 5px 5px 5px 5px;
+    */
 }
-/*
-#titulo_i {
-    width: 320px;
-    height: 195px;
-    position: relative;
-}
-
-#titulo_d {
-    width: 320px;
-    height: 195px;
-    position: relative;
-}
-*/
 #antorcha_i {
     left: 0;
     bottom: 0;

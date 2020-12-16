@@ -130,7 +130,7 @@ var Street = new Phaser.Class({
         //Carga de la animacion de ataque de Yacuza
         this.load.spritesheet('Yacuza_punch',
             '../resources/img/characters/Yacuza/Yacuza_Animacion_2.png',
-            {frameWidth: 700, frameHeight: 700}
+            {frameWidth: 768, frameHeight: 768}
         );
         //Carga del sprite de Yacuza
         this.load.spritesheet('Irlandes_idle',

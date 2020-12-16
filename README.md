@@ -150,7 +150,10 @@ El GameFlow se basará en un constante intercambio de golpes entre los jugadores
 
 ## 5.2.- Condición de victoria y derrota
 
-Cada jugador tiene como objetivo hacer que la vida del jugador rival llegue a cero y, por lo tanto, permanecer con vida al final de la partida. Como consecuencia, en el preciso momento en el que el contrincante sea derrotado se considerará que se ha alcanzado la condición de victoria.
+Cada jugador tiene como objetivo hacer que la vida del jugador rival llegue a cero y, por lo tanto, permanecer con vida al final de la partida. Como consecuencia, en el preciso momento en el que el contrincante sea derrotado se considerará que se ha alcanzado la condición de victoria. Cada victoria consta de una escena que indica el ganador.
+![](resources/img/Characters/Yacuza/Yacuza_Victoria.png)
+![](resources/img/Characters/Irlandes/Irlandes_Victoria.png)
+
 
 # 6.- Arte
 

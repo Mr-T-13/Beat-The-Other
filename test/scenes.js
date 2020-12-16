@@ -37,6 +37,62 @@ var MainMenu = new Phaser.Class({
 
 });
 
+var Victoryp1 = new Phaser.Class({
+
+    Extends: Phaser.Scene,
+
+    initialize:
+
+    function Victoryp1()
+    {
+        Phaser.Scene.call(this, { key: 'victoryp1', active: true });
+    },
+
+    preload: function ()
+    {
+        this.load.image('VP1','../resources/img/Characters/Yakuza/Yakuza_victoria.png');
+      
+        
+    },
+
+    create: function ()
+    {
+        //Carga del fondo
+        var bg = this.add.image(0, 0, 'VP1');
+        bg.setOrigin(0,0);
+   }
+
+});
+
+
+var Victoryp2 = new Phaser.Class({
+
+    Extends: Phaser.Scene,
+
+    initialize:
+
+    function MainMenu()
+    {
+        Phaser.Scene.call(this, { key: 'victoryp2', active: true });
+    },
+
+    preload: function ()
+    {
+        this.load.image('VP2','../resources/img/Characters/Irlandes/Irlandes_victoria.png');
+      
+        
+    },
+
+    create: function ()
+    {
+        //Carga del fondo
+        var bg = this.add.image(0, 0, 'VP2');
+        bg.setOrigin(0,0);
+      
+    }
+
+});
+
 
 
 
@@ -186,19 +242,23 @@ var Street = new Phaser.Class({
         
         //Mostrar por pantalla la barra de vida de jugador 1
         player1.lifeBar = this.add.sprite(posLifeP1X,posLifeP1Y,'lifeBar');
+        player1.lifeBar.setScale(2);
         player1.lifeBar.setFrame(player1.lifeStatus);
 
         //Mostrar por pantalla la barra de vida de jugador 2
         player2.lifeBar = this.add.sprite(posLifeP2X,posLifeP2Y,'lifeBar');
+        player2.lifeBar.setScale(2);
         player2.lifeBar.setFrame(player2.lifeStatus);
         player2.lifeBar.toggleFlipX();
 
         //Mostrar por pantalla la barra de energia de jugador 1
         player1.energyBar = this.add.sprite(posLifeP1X,posLifeP1Y,'EnergyBar');
+        player1.energyBar.setScale(2);
         player1.energyBar.setFrame(energyBarMaxFrame);
 
         //Mostrar por pantalla la barra de energia de jugador 2
         player2.energyBar = this.add.sprite(posLifeP2X,posLifeP2Y,'EnergyBar');
+        player2.energyBar.setScale(2);
         player2.energyBar.setFrame(energyBarMaxFrame);
         player2.energyBar.toggleFlipX();
         
@@ -445,6 +505,12 @@ var Street = new Phaser.Class({
                 player2.penalizacion= time + 1000; //1000 = 1 segundo de penalizacion
             }
         }
+        
+        //Escenas de victoria
+        if(player1.life <=0)
+            this.scene.call('victoryp2');
+        else if (player2.life <=0)
+            this.scene.call('victoryp1');
         
     }
 

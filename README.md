@@ -155,6 +155,16 @@ Cada jugador tiene como objetivo hacer que la vida del jugador rival llegue a ce
 ![](resources/img/Characters/Irlandes/Irlandes_Victoria.png)
 
 
+## 5.3.- Pantallas Principales
+
+### 5.3.1.- Pantala Menu Principal
+![](resources/img/background/Main_Menu_Screenshoot.jpg)
+Al iniciar el juego se encuentra esta pantalla con un menu principal con los botones de Opciones, Jugar y Créditos. Por ahora solo hemos implementado el boton Jugar que una vez pulsado te lleva a la pantalla de juego.
+
+### 5.3.1.- Pantala Juego
+![](resources/img/background/Street_Screenshoot.jpg)
+En esta pantalla se encuentran los dos jugadores a ambos lados de la pantalla con sus respectivas barras de vida y energia que se iran llenando o vaciando a lo largo del juego, además de los botones de combo que deberan pulsar en el orden que aparecen por pantalla para hacer daño al enemigo. Una vez la vida de uno de los personajes llegue a 0 se pasará a la pantalla de victoria correspondiente al jugador que haya dejado los puntos de vida del enemigo a 0.
+
 # 6.- Arte
 
 Como ya se ha ido mencionado en apartados anteriores, el juego bebe de elementos urbanos y callejeros. Por tanto, se intentará reflejar este espacio urbanita y elementos característicos de él, ya sea tanto en los propios personajes como en los escenarios.

@@ -50,7 +50,7 @@ var Victoryp1 = new Phaser.Class({
 
     preload: function ()
     {
-        this.load.image('VP1','../resources/img/Characters/Yakuza/Yacuza_victoria.png');
+        this.load.image('VP1','../resources/img/characters/Yacuza/Yacuza_Victoria.png');
       
         
     },
@@ -78,7 +78,7 @@ var Victoryp2 = new Phaser.Class({
 
     preload: function ()
     {
-        this.load.image('VP2','../resources/img/Characters/Irlandes/Irlandes_victoria.png');
+        this.load.image('VP2','../resources/img/characters/Irlandes/Irlandes_Victoria .png');
       
         
     },
@@ -508,9 +508,9 @@ var Street = new Phaser.Class({
         
         //Escenas de victoria
         if(player1.life <=0)
-            this.scene.call('victoryp2');
+            this.scene.start('victoryp2');
         else if (player2.life <=0)
-            this.scene.call('victoryp1');
+            this.scene.start('victoryp1');
         
     }
 
@@ -526,5 +526,5 @@ var config={
                         gravity: {y : 0}
                     }
                 },
-                scene: [Street, MainMenu, Victoryp1, Victoryp2]
+                scene: [ Victoryp1, Victoryp2, Street, MainMenu]
                 }

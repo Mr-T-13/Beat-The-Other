@@ -526,5 +526,5 @@ var config={
                         gravity: {y : 0}
                     }
                 },
-                scene: [Street, MainMenu]
+                scene: [Street, MainMenu, Victoryp1, Victoryp2]
                 }

@@ -50,7 +50,7 @@ var Victoryp1 = new Phaser.Class({
 
     preload: function ()
     {
-        this.load.image('VP1','../resources/img/Characters/Yakuza/Yakuza_victoria.png');
+        this.load.image('VP1','../resources/img/Characters/Yakuza/Yacuza_victoria.png');
       
         
     },

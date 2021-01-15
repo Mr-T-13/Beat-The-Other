@@ -37,6 +37,38 @@ var MainMenu = new Phaser.Class({
 
 });
 
+var Login = new Phaser.Class({
+    Extends: Phaser.Scene,
+
+    initialize:
+
+    function Login()
+    {
+        Phaser.Scene.call(this, { key: 'login', active: false });
+    },
+
+    preload: function()
+    {
+        this.load.image('log','../resources/img/Menu/Login.png');
+        this.load.plugin('rexinputtextplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexinputtextplugin.min.js', true);
+    },
+
+    create: function()
+    {
+        //Carga del fondo
+        var bg = this.add.image(350, 100, 'log');
+        bg.setOrigin(0,0);
+        //var name = document.getElementById("myText");
+        var inputText = this.add.rexInputText(600, 400, 100, 50, config);
+        inputText.innerText = "hola";
+        inputText.backgroundColor = '#ffffff';
+        console.log(inputText);
+        
+        console.log(inputText.text);
+    },
+
+})
+
 var Victoryp1 = new Phaser.Class({
 
     Extends: Phaser.Scene,
@@ -45,7 +77,7 @@ var Victoryp1 = new Phaser.Class({
 
     function Victoryp1()
     {
-        Phaser.Scene.call(this, { key: 'victoryp1', active: true });
+        Phaser.Scene.call(this, { key: 'victoryp1', active: false });
     },
 
     preload: function ()
@@ -71,9 +103,9 @@ var Victoryp2 = new Phaser.Class({
 
     initialize:
 
-    function MainMenu()
+    function Victoryp2()
     {
-        Phaser.Scene.call(this, { key: 'victoryp2', active: true });
+        Phaser.Scene.call(this, { key: 'victoryp2', active: false });
     },
 
     preload: function ()
@@ -105,7 +137,7 @@ var Street = new Phaser.Class({
 
     function Street ()
     {
-        Phaser.Scene.call(this, { key: 'street', active: true });
+        Phaser.Scene.call(this, { key: 'street', active: false });
         
     },
     
@@ -526,5 +558,9 @@ var config={
                         gravity: {y : 0}
                     }
                 },
-                scene: [ Victoryp1, Victoryp2, Street, MainMenu]
+                parent: 'login',
+                dom:{
+                    createContainer: true
+                },
+                scene: [ Victoryp2, Victoryp1, Street, Login, MainMenu]
                 }

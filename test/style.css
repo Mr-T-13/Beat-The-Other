@@ -59,9 +59,7 @@ html {
     filter: FlipH;
     -ms-filter: "FlipH";
 }
-#login {
 
-}
 canvas { 
     padding: 0; 
     margin: auto; 

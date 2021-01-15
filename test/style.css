@@ -60,8 +60,7 @@ html {
     -ms-filter: "FlipH";
 }
 #login {
-    left: 100;
-    position: absolute;
+
 }
 canvas { 
     padding: 0; 
@@ -69,11 +68,6 @@ canvas {
     display: block; 
     width: 1200px; 
     height: 800px; 
-    position: relative; 
-    top: 0; 
-    bottom: 0; 
-    left: 0;
-    right: 0; 
 } 
 
 

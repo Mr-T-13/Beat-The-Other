@@ -16,7 +16,7 @@ var game = new Phaser.Game({
         }
     },
     parent: "game",
-    dom:{
+    dom: {
         createContainer: true
     },
     scene: [Login, MainMenu, Street, Victoryp1, Victoryp2]

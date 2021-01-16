@@ -24,42 +24,21 @@ export default class Login extends Phaser.Scene{
         element.on('click', function(event){
             if (event.target.name === 'login')
             {
-                
-                this.scene.start('MainMenu');
                 var inputUsername = this.getChildByName('username');
                 var inputPassword = this.getChildByName('password');
                 
                 if(inputUsername.value !== '' && inputPassword.value !== ''){
-                    this.prueba = isLogged(inputUsername.value, inputPassword.value);                    
+                    var url = "http://localhost:8080/user/" + inputUsername.value + "/" + inputPassword.value;
+                    var xmlHttp = new XMLHttpRequest();
+                    xmlHttp.open("GET", url, false );
+                    xmlHttp.send();
+                    if(xmlHttp.readyState==4 && xmlHttp.status == 200)
+                    {
+                        this.scene.scene.start('MainMenu');
+                    }
+                    
                 }
             }
         })
-        console.log(this.prueba);
-
-        function isLogged(name, password)
-        {
-            $(document).ready(function(){
-                $.ajax({
-                    url: "http://localhost:8080/user/" + name + "/" + password,
-                }).done(function(data){
-                    if(data.nombre !== null)
-                    {
-                        this.scene.start('MainMenu');
-                        return true;
-                    }else
-                    {
-                        return false;
-                    }
-                });
-            });
-        }
-    }
-
-    update()
-    { console.log(this.prueba);
-        if(this.prueba)
-        {
-            this.scene.start('MainMenu');
-        }
     }
 }

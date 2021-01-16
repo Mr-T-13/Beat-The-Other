@@ -38,7 +38,7 @@ export default class Street extends Phaser.Scene{
         );
 
         //Carga imagen del background
-        this.load.image('background', 'Escenario_2.png');
+        this.load.image('background', '../resources/img/Background/Escenario_2.png');
         
         //Carga de la barra de vida
         this.load.spritesheet('lifeBar', 

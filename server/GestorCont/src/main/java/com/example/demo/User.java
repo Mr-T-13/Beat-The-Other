@@ -4,6 +4,7 @@ public class User {
 
 	private String nombre;
 	private String password;
+	private boolean isOnline;
 
 	public User() {
 	}
@@ -11,6 +12,7 @@ public class User {
 	public User(String nombre, String password) {
 		this.nombre = nombre;
 		this.password= password;
+
 	}
 
 	public String getNombre() {
@@ -23,6 +25,14 @@ public class User {
 
 	public String getPassword() {
 		return password;
+	}
+	
+	public void setOnline(boolean O) {
+		this.isOnline = O;
+	}
+	
+	public boolean getOnline() {
+		return isOnline;
 	}
 
 }

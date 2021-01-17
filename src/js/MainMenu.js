@@ -11,6 +11,7 @@ export default class MainMenu extends Phaser.Scene{
             {frameWidth: 256, frameHeight: 256})
         
         this.load.image('Jugar','../resources/img/Menu/Jugar.png');
+        this.load.image('Red','../resources/img/Menu/Red.png')
         //Carga imagen del background
         this.load.image('backgroundm', '../resources/img/background/Escenario_1.png');
         
@@ -28,5 +29,9 @@ export default class MainMenu extends Phaser.Scene{
         var botonJugar = this.physics.add.sprite(595,510, 'Jugar');
         botonJugar.setInteractive();
         botonJugar.on('pointerdown', () => { this.scene.start('Street');})
+        
+        var botonOpc = this.physics.add.sprite(595,310, 'Red');
+        botonOpc.setInteractive();
+        botonOpc.on('pointerdown', () => { this.scene.start('Userlist');})
     }
 }

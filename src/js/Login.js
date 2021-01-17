@@ -17,7 +17,8 @@ export default class Login extends Phaser.Scene{
         var bg = this.add.image(350, 100, 'log');
         bg.setOrigin(0,0);
 
-        var element = this.add.dom(863, 300).createFromCache('login-form');
+        console.log($(window).width());
+        var element = this.add.dom(($(window).width()/2)-96, 300).createFromCache('login-form');
         element.setOrigin(0,0);
         element.addListener('click');
         this.prueba = false;

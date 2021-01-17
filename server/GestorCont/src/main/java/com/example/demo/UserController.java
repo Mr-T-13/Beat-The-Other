@@ -34,4 +34,10 @@ public class UserController {
 		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED); //devuelve un codigo http si ha tenido exito
 	}
 	
+	//DEVUELVE LOS USUARIOS ONLINE
+		@RequestMapping(value="/onlineUsers" , method=RequestMethod.GET)
+		public List<String> getOnlineUsers() {
+			return userService.getOnlineUsers();
+		}
+	
 }

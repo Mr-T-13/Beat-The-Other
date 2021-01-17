@@ -21,10 +21,25 @@ public class UserService {
 		return new 	ArrayList<User>(userMap.values());
 	};
 	
+	public List<String> getOnlineUsers() {
+		ArrayList<String> connected = new ArrayList<String>();
+		
+		ArrayList<User> all = new ArrayList<User>(userMap.values());
+		for(int i=0; i< all.size(); i++)
+		{
+			if(all.get(i).getOnline())
+			{
+				connected.add((all.get(i).getNombre()));
+			}
+		}
+		return connected;
+	};
+	
 	public User getUser(String name, String password) {
 		User a= new User();
 		if(userMap.get(name).getPassword().equals(password)) {
 			a=userMap.get(name);
+			a.setOnline(true);
 		}
 		return a;
 	}
@@ -32,5 +47,7 @@ public class UserService {
 	public void addUser(User user) {
 		userMap.put(user.getNombre(), user);	
 	};
+	
+	
 	
 }

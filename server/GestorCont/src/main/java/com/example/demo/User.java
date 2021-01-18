@@ -4,13 +4,17 @@ public class User {
 
 	private String nombre;
 	private String password;
+	private String nickname;
+	private int id;
+	private float timestamp;
 	private boolean isOnline;
 
 	public User() {
 	}
 
-	public User(String nombre, String password) {
+	public User(String nombre, String nickname, String password) {
 		this.nombre = nombre;
+		this.nickname = nickname;
 		this.password= password;
 
 	}
@@ -27,6 +31,30 @@ public class User {
 		return password;
 	}
 	
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public float getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(float timestamp) {
+		this.timestamp = timestamp;
+	}
+
 	public void setOnline(boolean O) {
 		this.isOnline = O;
 	}
@@ -34,5 +62,4 @@ public class User {
 	public boolean getOnline() {
 		return isOnline;
 	}
-
 }

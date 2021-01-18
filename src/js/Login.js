@@ -35,11 +35,17 @@ export default class Login extends Phaser.Scene{
                     xmlHttp.send();
                     if(xmlHttp.readyState==4 && xmlHttp.status == 200)
                     {
+                        username = inputUsername.value;
                         this.scene.scene.start('MainMenu');
                     }
                     
                 }
             }
+            if (event.target.name === 'sign_in')
+            {
+                this.scene.scene.start('Registro');
+            }
+
         })
     }
 }

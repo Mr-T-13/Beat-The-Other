@@ -9,6 +9,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" src="../src/js/constants.js"></script>
         <script type="text/javascript" src="../src/js/tools.js"></script>
+        <script type="text/javascript" src="../src/js/Network.js"></script>
         <script type="module" src="../src/js/config.js"></script>
         
     </head>
@@ -32,13 +33,34 @@
             </div>
         </div>
         <div id="antorcha_d">
-            <img src="../resources/img/Resto de recursos/Antorcha.gif">
+            <div id="usuarios">
+                <p>Usuarios conectados:</p>
+                <p id='userstatus'></p>
+            </div>
+            <img src="../resources/img/Resto de recursos/Antorcha.gif" style="bottom: 0;-webkit-transform: scaleX(-1);
+            -moz-transform: scaleX(-1);
+            transform: scaleX(-1);
+            filter: FlipH;
+            -ms-filter: FlipH;">
+            
         </div>
         <div id="antorcha_i">
-            <img src="../resources/img/Resto de recursos/Antorcha.gif">
+            <div id="chatstyle">
+                <p id ='chat'>Esto sería un chat con muchas líneas </p>
+            </div>
+            <div id="boton">
+                <form id="input-chat" style="overflow: visible">
+                    <input id="boton" type="text" placeholder="Chat general"/>
+                    <button id="boton" type="submit">Enviar</button>
+                </form>
+            </div>
+            <img src="../resources/img/Resto de recursos/Antorcha.gif" style="top: 0;">
         </div>
 
         <div id="game"></div>
         
+        <script type = "text/javascript">
+            
+        </script>
     </body>
 </html>

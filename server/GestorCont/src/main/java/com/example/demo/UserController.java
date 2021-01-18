@@ -27,10 +27,10 @@ public class UserController {
 		return userService.getUser(name,password);
 	}
 	
-	//METE UN USUARIO PARA ELLO DEBEMOS PASARLE SU NOMBRE Y CONTRASEÑA. //DEVUELVE TRUE SI LO HACE
-	@RequestMapping(value= "/users", method=RequestMethod.POST)
-	public ResponseEntity<Boolean> addUser(@RequestBody User user) { 
-		userService.addUser(user);
+	//METE UN USUARIO PARA ELLO DEBEMOS PASARLE SU NOMBRE, NICK Y CONTRASEÑA. //DEVUELVE TRUE SI LO HACE
+	@RequestMapping(value= "/user/{userName}/{userNick}/{userPassword}", method=RequestMethod.POST)
+	public ResponseEntity<Boolean> addUser(@PathVariable ("userName") String name, @PathVariable ("userNick") String nickname, @PathVariable ("userPassword") String password) { 
+		userService.addUser(name, nickname, password);
 		return new ResponseEntity<Boolean>(true,HttpStatus.CREATED); //devuelve un codigo http si ha tenido exito
 	}
 	

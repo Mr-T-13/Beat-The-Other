@@ -41,6 +41,11 @@ export default class Login extends Phaser.Scene{
                     
                 }
             }
+            if (event.target.name === 'sign_in')
+            {
+                this.scene.scene.start('Registro');
+            }
+
         })
     }
 }

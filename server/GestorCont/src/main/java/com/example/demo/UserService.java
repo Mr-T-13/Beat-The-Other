@@ -48,6 +48,20 @@ public class UserService {
 		userMap.put(user.getNombre(), user);	
 	};
 	
-	
+	public boolean disconnect (String username) {
+		boolean result = false;
+		
+		ArrayList<User> all = new ArrayList<User>(userMap.values());
+		for(int i=0; i< all.size(); i++)
+		{
+			if(all.get(i).getNombre() == username)
+			{
+				all.get(i).setOnline(false);
+				result = true;
+			}
+		}
+		
+		return result;
+	}
 	
 }

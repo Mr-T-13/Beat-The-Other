@@ -35,9 +35,14 @@ public class UserController {
 	}
 	
 	//DEVUELVE LOS USUARIOS ONLINE
-		@RequestMapping(value="/onlineUsers" , method=RequestMethod.GET)
-		public List<String> getOnlineUsers() {
-			return userService.getOnlineUsers();
-		}
+	@RequestMapping(value="/onlineUsers" , method=RequestMethod.GET)
+	public List<String> getOnlineUsers() {
+		return userService.getOnlineUsers();
+	}
 	
+	//DESCONECTA A UN USUARIO
+	@RequestMapping(value="/disconnect" , method=RequestMethod.POST)
+	public ResponseEntity<Boolean> disconnect(@RequestBody String username){
+		return new ResponseEntity<Boolean> (userService.disconnect(username), HttpStatus.OK);
+	}
 }

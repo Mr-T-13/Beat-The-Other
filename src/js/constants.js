@@ -24,3 +24,6 @@ var posP2X      = 900;
 var posP2Y      = 580;
 var posLifeP2X  = 1050;
 var posLifeP2Y  = 100;
+
+//Variables red
+var username;

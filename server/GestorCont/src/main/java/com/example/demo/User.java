@@ -62,4 +62,5 @@ public class User {
 	public boolean getOnline() {
 		return isOnline;
 	}
+	
 }

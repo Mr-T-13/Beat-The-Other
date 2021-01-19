@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
@@ -22,25 +23,15 @@ public class UserService {
 	File userlist = new File("userlist.txt");
 	
 	UserService(){
-		//User a= new User("David","123");
-		//User b= new User("Adrian","123");
-		//User c= new User("Jesus", "123");
-		//userMap.put(a.getNombre(), a);
-		//userMap.put(b.getNombre(), b);
-		//userMap.put(c.getNombre(), c);
 		
 		try {
+			
 			if(!userlist.exists()) {
 				userlist.createNewFile();
 			}else {
-				//FALLO: Intento de lectura del txt para guardarlos en el userMap
-				
-				FileReader ler = new FileReader(userlist);
-				BufferedReader reader = new BufferedReader(ler);
-				//JSONParser jsonParser = new JSONParser();
-				//JSONArray userlist_json = (JSONArray) jsonParser.parse();
-				//System.out.println(userlist_json);
+				readUserlist(); 
 			}
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -69,6 +60,7 @@ public class UserService {
 		if(userMap.get(name).getPassword().equals(password)) {
 			a=userMap.get(name);
 			a.setOnline(true);
+			System.out.println(a.getOnline());
 		}
 		return a;
 	}
@@ -89,19 +81,32 @@ public class UserService {
 	
 	public boolean disconnect (String username) {
 		boolean result = false;
-		
-		ArrayList<User> all = new ArrayList<User>(userMap.values());
-		for(int i=0; i< all.size(); i++)
-		{
-			if(all.get(i).getNombre() == username)
-			{
-				all.get(i).setOnline(false);
-				result = true;
-			}
+		if(userMap.get(username).getOnline()) {
+			userMap.get(username).setOnline(false);
+			result = true;
 		}
-		
+		System.out.println(result);
 		return result;
 	}
-
+	
+	private void readUserlist() {
+		try {
+			FileReader ler = new FileReader(userlist);
+			BufferedReader reader = new BufferedReader(ler);
+			JSONParser jsonParser = new JSONParser(reader);
+			HashMap<String,Object> map = (HashMap<String,Object>) jsonParser.parse();
+			Object[] keys =  map.keySet().toArray();
+			for(int i = 0; i < keys.length; i++) {
+				String clave = keys[i].toString();
+				String info = map.get(clave).toString();
+				info = info.replace("=", ":");
+				JSONObject json = new JSONObject(info);
+				User usuario = new User(json.get("nombre").toString(), json.get("nickname").toString(), json.get("password").toString());
+				userMap.put(clave, usuario);
+			}
+		}catch(IOException | ParseException e) {
+			e.printStackTrace();
+		}
+	}
 	
 }

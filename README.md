@@ -156,12 +156,12 @@ Cada jugador tiene como objetivo hacer que la vida del jugador rival llegue a ce
 
 
 ## 5.3.- Pantallas Principales
-![](resources/img/background/Web_Screenshoot.png)
+![](resources/img/background/Web_Screenshoot.PNG)
 Se incorporan dos nuevas pantallas para la gestión del juego en red. También, se incorporan dentro de la maquetación de la página del juego, dos estructuras que permanecen invariables en todas las pantallas, como son la de un chat entre todos los usuarios conectados y la de un apartado que muestra los usuarios conectados al servidor. Esto último, también se ha incluido en una pantalla del juego por si el usuario dedidiera jugarlo en pantalla completa (aun no implementado) y no quisiera ver la maquetación de esta.
 
 ### 5.3.1.- Pantala Login y registro de nuevos usuarios
-![](resources/img/background/Login_Screenshoot.png)
-![](resources/img/background/Sing_in_Screenshoot.png)
+![](resources/img/background/Login_Screenshoot.PNG)
+![](resources/img/background/Sing_in_Screenshoot.PNG)
 Es la primera pantalla con la que se inicia el juego, donde se encuentran dos botones, con el botón de "Sing in" podrás logearte en el juego con un nombre, un nick y una contraseña. Después, podrás acceder a la pantalla de menú principal a través de tus credenciales
 
 ### 5.3.2.- Pantala Menu Principal
@@ -169,7 +169,7 @@ Es la primera pantalla con la que se inicia el juego, donde se encuentran dos bo
 Al iniciar el juego se encuentra esta pantalla con un menu principal con los botones de Red, Jugar y Créditos. El botón de jugar lleva a la pantalla de juego y lo mismo sucede con el botón de red.
 
 ### 5.3.3.- Pantala Red
-![](resources/img/background/Red_Screenshoot.png)
+![](resources/img/background/Red_Screenshoot.PNG)
 En este apartado se puede ver los usuarios que están conectados al servidor. Se presenta a la vez un botón que lleva de vuelta al menú principal.
 
 ### 5.3.4.- Pantala Juego

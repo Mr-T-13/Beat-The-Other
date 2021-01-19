@@ -41,6 +41,8 @@ TRELLO: https://trello.com/b/vb3j1QJ0/juegos-en-red
 
 [5.2.- Condición de victoria y derrota](#_Toc54629570)
 
+[5.3.- Pantallas principales](#_Toc54629570)
+
 [6.- Arte](#_Toc54629571)
 
 [6.1 - Personajes](#_Toc54629572)
@@ -154,7 +156,6 @@ Cada jugador tiene como objetivo hacer que la vida del jugador rival llegue a ce
 ![](resources/img/Characters/Yacuza/Yacuza_Victoria.png)
 ![](resources/img/Characters/Irlandes/Irlandes_Victoria.png)
 
-
 ## 5.3.- Pantallas Principales
 Se incorporan dos nuevas pantallas para la gestión del juego en red. También, se incorporan dentro de la maquetación de la página del juego, dos estructuras que permanecen invariables en todas las pantallas, como son la de un chat entre todos los usuarios conectados y la de un apartado que muestra los usuarios conectados al servidor. Esto último, también se ha incluido en una pantalla del juego por si el usuario dedidiera jugarlo en pantalla completa (aun no implementado) y no quisiera ver la maquetación de esta.
 ![](resources/img/Background/Web_Screenshoot.PNG)
@@ -170,6 +171,7 @@ Al iniciar el juego se encuentra esta pantalla con un menu principal con los bot
 
 ### 5.3.3.- Pantala Red
 En este apartado se puede ver los usuarios que están conectados al servidor. Se presenta a la vez un botón que lleva de vuelta al menú principal.
+
 ![](resources/img/Background/Red_Screenshoot.PNG)
 
 ### 5.3.4.- Pantala Juego

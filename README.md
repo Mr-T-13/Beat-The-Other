@@ -156,7 +156,7 @@ Cada jugador tiene como objetivo hacer que la vida del jugador rival llegue a ce
 
 
 ## 5.3.- Pantallas Principales
-![](resources/img/background/Web_Screenshoot.PNG)
+![](resources/img/Background/Web_Screenshoot.PNG)
 Se incorporan dos nuevas pantallas para la gestión del juego en red. También, se incorporan dentro de la maquetación de la página del juego, dos estructuras que permanecen invariables en todas las pantallas, como son la de un chat entre todos los usuarios conectados y la de un apartado que muestra los usuarios conectados al servidor. Esto último, también se ha incluido en una pantalla del juego por si el usuario dedidiera jugarlo en pantalla completa (aun no implementado) y no quisiera ver la maquetación de esta.
 
 ### 5.3.1.- Pantala Login y registro de nuevos usuarios

@@ -33,7 +33,7 @@ public class WebSocketCharacterHandler extends TextWebSocketHandler {
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 		
 		System.out.println("Message received: " + message.getPayload());
-		JsonNode node = mapper.readTree(message.getPayload());
+		//JsonNode node = mapper.readTree(message.getPayload());
 		
 		
 	}

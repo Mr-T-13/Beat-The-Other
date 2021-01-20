@@ -178,6 +178,12 @@ En este apartado se puede ver los usuarios que están conectados al servidor. Se
 En esta pantalla se encuentran los dos jugadores a ambos lados de la pantalla con sus respectivas barras de vida y energia que se iran llenando o vaciando a lo largo del juego, además de los botones de combo que deberan pulsar en el orden que aparecen por pantalla para hacer daño al enemigo. Una vez la vida de uno de los personajes llegue a 0 se pasará a la pantalla de victoria correspondiente al jugador que haya dejado los puntos de vida del enemigo a 0.
 ![](resources/img/Background/Street_Screenshoot.jpg)
 
+## 5.4.- Diagrama de clases UML
+![](resources/img/Background/UML_API_REST.PNG)
+
+## 5.5.- Instrucciones para ejecutar la aplicación
+
+
 # 6.- Arte
 
 Como ya se ha ido mencionado en apartados anteriores, el juego bebe de elementos urbanos y callejeros. Por tanto, se intentará reflejar este espacio urbanita y elementos característicos de él, ya sea tanto en los propios personajes como en los escenarios.

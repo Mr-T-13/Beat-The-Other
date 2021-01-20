@@ -182,7 +182,7 @@ En esta pantalla se encuentran los dos jugadores a ambos lados de la pantalla co
 ![](resources/img/Background/UML_API_REST.PNG)
 
 ## 5.5.- Instrucciones para ejecutar la aplicación
-
+Para poder abrir el juego necesitas la extensión de Chrome 200 OK y abrir la dirección 'src/main/resources/static', la URL necesaria es 'http://127.0.0.1:8887/src/'
 
 # 6.- Arte
 

@@ -17,7 +17,9 @@ import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserService {
 	private Map<String, User> userMap= new HashMap<String,User>();
 	File userlist = new File("userlist.txt");
@@ -60,7 +62,6 @@ public class UserService {
 		if(userMap.get(name).getPassword().equals(password)) {
 			a=userMap.get(name);
 			a.setOnline(true);
-			System.out.println(a.getOnline());
 		}
 		return a;
 	}

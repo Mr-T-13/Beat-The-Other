@@ -2,6 +2,9 @@ package com.example.demo;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Chat {
 	public static final int maxMessages = 10;
 	

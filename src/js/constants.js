@@ -28,3 +28,4 @@ var posLifeP2Y  = 100;
 //Variables red
 var username;
 var lastUsers;
+var logged;

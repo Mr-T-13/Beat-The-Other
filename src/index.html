@@ -46,12 +46,12 @@
         </div>
         <div id="antorcha_i">
             <div id="chatstyle">
-                <p id ='chat'>Esto sería un chat con muchas líneas </p>
+                <p id ='chat'></p>
             </div>
-            <div id="boton">
-                <form id="input-chat" style="overflow: visible">
-                    <input id="boton" type="text" placeholder="Chat general"/>
-                    <button id="boton" type="submit">Enviar</button>
+            <div>
+                <form id="input-chat" style="overflow: visible" onkeypress="return event.keyCode != 13">
+                    <input id="textmsg" type="text" placeholder="Chat general"/>
+                    <button id="sendButton" type="button" onclick="SendChatMsg()">Enviar</button>
                 </form>
             </div>
             <img src="../resources/img/Resto de recursos/Antorcha.gif" style="top: 0;">

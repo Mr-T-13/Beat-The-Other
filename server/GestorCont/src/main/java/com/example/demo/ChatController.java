@@ -21,7 +21,7 @@ public class ChatController {
 	
 	//AÑADE UNA LINEA NUEVA AL CHAT
 	@RequestMapping(value="/AddMsg" , method=RequestMethod.POST)
-	public ResponseEntity<Boolean> AddMsg(@RequestBody String userNick,@RequestBody String msg){
-		return new ResponseEntity<Boolean> (chat.AddMsg(userNick+": "+ msg), HttpStatus.OK);
+	public ResponseEntity<Boolean> AddMsg(@RequestBody String msg){
+		return new ResponseEntity<Boolean> (chat.AddMsg(msg), HttpStatus.OK);
 	}
 }

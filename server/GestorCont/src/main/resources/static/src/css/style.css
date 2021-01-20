@@ -1,0 +1,93 @@
+html {
+    background-image: url("../../resources/img/Background/Ring_recortado.png");
+    background-size: cover;
+    /*
+    background-color:#670098;
+    
+    background-color:#410060;
+    
+    background-color:#c70061;
+    */
+}
+#cabecera {
+    width: 1880px;
+    height: 120px;
+    display: table;
+    border: 2px solid yellow;
+    border-radius: 50px 50px 50px 50px;
+    /*
+    background-color:#670098;
+    */
+    background-color:#410060;
+    /*
+    background-color:#c70061;
+    */
+}
+.titulo img{
+    height: 110px;
+    vertical-align: middle;
+}
+.titulo {
+    color: yellow;
+    font-size: 30px;
+    font-family: 'Langar', cursive;
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+    /*
+    background-color: #c70061;
+    border-radius: 5px 5px 5px 5px;
+    */
+}
+#antorcha_i {
+    left: 10;
+    /*bottom: 0;*/
+    width: 320;
+    height: 640;
+    position: absolute;
+}
+#antorcha_d {
+    right: 10;
+    /*bottom: 0;*/
+    width: 320;
+    height: 640;
+    position: absolute;
+    /*Transformación vertical para que se vea en espejo*/
+    /*-webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";*/
+}
+#chatstyle {
+    top: 0;
+    height: 300;
+    border: 2px solid yellow;
+    border-radius: 10px 10px 10px 10px;
+    color: yellow;
+    font-family: 'Langar', cursive;
+    font-size: 17px;
+}
+#usuarios {
+    right: 10px;
+    top: 0;
+    height: 300;
+    vertical-align: middle;
+    color: yellow;
+    font-family: 'Langar', cursive;
+    font-size: 20px;
+}
+#boton {
+    padding: 2px;
+    text-align: center;
+}
+
+canvas { 
+    padding: 0; 
+    margin: auto; 
+    display: block; 
+    width: 1200px; 
+    height: 800px; 
+} 
+
+

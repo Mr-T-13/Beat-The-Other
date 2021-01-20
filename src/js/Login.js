@@ -21,7 +21,6 @@ export default class Login extends Phaser.Scene{
         var element = this.add.dom(($(window).width()/2)-96, 300).createFromCache('login-form');
         element.setOrigin(0,0);
         element.addListener('click');
-        this.prueba = false;
         element.on('click', function(event){
             if (event.target.name === 'login')
             {
@@ -35,6 +34,7 @@ export default class Login extends Phaser.Scene{
                     xmlHttp.send();
                     if(xmlHttp.readyState==4 && xmlHttp.status == 200)
                     {
+                        logged = true;
                         username = inputUsername.value;
                         this.scene.scene.start('MainMenu');
                     }

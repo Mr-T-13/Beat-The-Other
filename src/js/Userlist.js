@@ -45,37 +45,3 @@ export default class Userlist extends Phaser.Scene{
             });
     }
 }
-
-//Actualiza el chat
-function UpdateChat()
-{
-    var chatString;
-    var chatURL = "http://localhost:8080/UpdateChat";
-    fetch(chatURL)
-            .then(response=>response.json())
-            .then(data=>{
-                for(var i in data)
-                {
-                    chatString += data[i]+"\n";                }
-            });
-    }
-$("chat").html(chatString);
-    
-}
-
-function SendChatMsg()
-{
-    var chatPostURL = "http://localhost:8080/UpdateChat";
-    fetch(chatPostURL, {
-        method: "POST",
-        headers:{
-            "Accept": "text/plain",
-            "Content-Type": "text/plain"}
-        ,
-        body: username + ": "+ $("input-chat").html();
-        });
-}
-    
-
-$("boton").onclick(SendChatMsg)
-window.setInterval(UpdateChat,1000);

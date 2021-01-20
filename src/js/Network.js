@@ -7,21 +7,55 @@ window.addEventListener("beforeunload", function () {
     }).then(response => console.log(username + " se ha desconectado"));
 });
 
-//window.setInterval(PingUsers(), 500);
+window.setInterval(PingUsers, 500);
 
 function PingUsers()
 {
-    var lista_completa;
-    $('userstatus').text = '';
-    var url = "http://localhost:8080/ping";
+        var lista_completa = '';
+        //$('userstatus').text = '';
+        var url = "http://localhost:8080/onlineUsers";
     fetch(url)
-            .then(response=>response.json())
+            .then(response =>response.json())
             .then(data=>{
                 for(var i in data)
                 {
-                    console.log("User connected: "+data[i]);
-                    lista_completa += data[i] += '\n';
+                    lista_completa += data[i] + "<br>";
                 }
-                lista_completa == ''?$('userstatus').html(lista_completa):$('usertatus').html('No hay nadie conectado');
+                lista_completa == ''?document.getElementById('userstatus').innerHTML = 'No hay nadie conectado':document.getElementById('userstatus').innerHTML = lista_completa;
+            })
+            .catch(rejected => {
+                document.getElementById('userstatus').innerHTML = 'Servidor desconectado';
             });
+
+    UpdateChat();
+}
+
+
+//Actualiza el chat
+function UpdateChat()
+{
+    var chatString = '';
+    var chatURL = "http://localhost:8080/UpdateChat";
+    fetch(chatURL)
+            .then(response =>response.json())
+            .then(data=>{
+                for(var i in data)
+                {
+                    chatString += data[i]+ "<br>";
+                }
+                document.getElementById('chat').innerHTML = chatString;
+            });
+}
+
+function SendChatMsg()
+{
+    if(logged)
+    {
+        var msg = '';
+        msg += document.getElementById("textmsg").value;
+        var url = "http://localhost:8080/AddMsg";
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("POST", url, false );
+        xmlHttp.send(username + ": " + msg);
+    }
 }

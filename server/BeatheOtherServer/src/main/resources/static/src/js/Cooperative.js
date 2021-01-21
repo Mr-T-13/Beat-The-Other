@@ -60,6 +60,12 @@ export default class Street extends Phaser.Scene{
         this.load.audio('punch2', '../resources/sfx/p2.ogg');
         this.load.audio('punch3', '../resources/sfx/p3.ogg');
         this.load.audio('punch4', '../resources/sfx/p4.ogg');
+
+        //carga saco
+        this.load.spritesheet('sacoResource',
+        '../resources/img/Resto de recursos/Saco.png',
+        {frameWidth: 192, frameHeight: 192}
+    );
     }
 
     create()
@@ -217,13 +223,33 @@ export default class Street extends Phaser.Scene{
 
         //variable puntuacion
         scoreText = this.add.text(350, 80, 'score: '+scoreGoal.toString(), { fontSize: '70px', fill: '#FFF' });
-       
+
+        //saco
+        saco= this.physics.add.sprite(600, 350, 'sacoResource');
+    
+        this.anims.create({
+            key:'sacoD',
+            frames: this.anims.generateFrameNumbers('sacoResource', { start: 0, end: 2 }),
+            frameRate: 1,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key:'sacoI',
+            frames: this.anims.generateFrameNumbers('sacoResource', { start: 2, end: 0 }),
+            frameRate: 1,
+            repeat: -1
+        });
+
+        saco.setScale(2);
+
     }
 
     update(time, delta)
     {
         //GameLoop en proceso
         //Si P1 ha hecho el combo completo
+
         if(this.player1.comboBoton == 4)
         {
             //Se resetean los sprites de los botones
@@ -290,6 +316,8 @@ export default class Street extends Phaser.Scene{
                     //Resta vida al enemigo y aumenta la barra de energia dependiendo del multiplicador
                     scoreGoal-=10;
                     this.player1.energy += (2 * this.player1.multiplicador); 
+                    saco.anims.play('sacoD',true);
+                    
                 }else{
                     //Resta vida al enemigo y aumenta la barra de energia
                     this.player1.energy += 2;
@@ -344,6 +372,8 @@ export default class Street extends Phaser.Scene{
                     //Resta vida al enemigo y aumenta la barra de energia dependiendo del multiplicador
                     scoreGoal-=10;
                     this.player2.energy += (2 * this.player2.multiplicador); 
+                    saco.anims.play('sacoI',true);
+
                 }else{
                     //Resta vida al enemigo y aumenta la barra de energia
                     this.player2.energy += 2;

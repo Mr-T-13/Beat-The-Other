@@ -37,3 +37,6 @@ var pet;
 //variables cooperativo
 var scoreGoal=100;
 var scoreText;
+
+//variables saco
+var saco;

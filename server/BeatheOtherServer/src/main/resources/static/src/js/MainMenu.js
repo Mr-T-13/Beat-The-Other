@@ -33,7 +33,7 @@ export default class MainMenu extends Phaser.Scene{
         
         var botonJugar = this.physics.add.sprite(595,510, 'Jugar');
         botonJugar.setInteractive();
-        botonJugar.on('pointerdown', () => { this.scene.start('Street');})
+        botonJugar.on('pointerdown', () => { this.scene.start('Cooperative');})
         
         var botonOpc = this.physics.add.sprite(595,310, 'Red');
         botonOpc.setInteractive();

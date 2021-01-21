@@ -33,3 +33,7 @@ var logged;
 //Variables mascota
 var clicks=0;
 var pet;
+
+//variables cooperativo
+var scoreGoal=100;
+var scoreText;

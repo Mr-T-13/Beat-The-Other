@@ -1,8 +1,11 @@
 package com.example.demo;
 
+import org.springframework.web.socket.WebSocketSession;
+
 public class Character {
 	private int life;
 	private int combo;
+	private WebSocketSession session;
 	
 	Character(int life){
 		this.life=life;
@@ -25,4 +28,12 @@ public class Character {
 		this.combo = combo;
 	}
 	
+	public void setUserSession( WebSocketSession s)
+	{
+		this.session = s;
+	}
+	public WebSocketSession getUserSession()
+	{
+		return this.session;
+	}
 }

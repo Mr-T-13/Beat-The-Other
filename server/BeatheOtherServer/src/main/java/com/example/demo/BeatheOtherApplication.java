@@ -19,11 +19,18 @@ public class BeatheOtherApplication implements WebSocketConfigurer {
 	public void registerWebSocketHandlers(
 	WebSocketHandlerRegistry registry) {
 	registry.addHandler(characterHandler(), "/character").setAllowedOrigins("*");
+	registry.addHandler(battleHandler(), "/battle").setAllowedOrigins("*");
+	
 	}
 	
 	@Bean
 	public WebSocketCharacterHandler characterHandler() {
 	return new WebSocketCharacterHandler();
+	}
+	
+	@Bean
+	public WebSocketBattleHandler battleHandler() {
+	return new WebSocketBattleHandler();
 	}
 
 	public static void main(String[] args) {

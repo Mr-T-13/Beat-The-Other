@@ -18,9 +18,12 @@ public class WebSocketBattleHandler extends TextWebSocketHandler{
 		{
 			case "Attack":
 				var dmg = node.get("dmg").asInt();
-				break;
-			
-				
+				var attacker = node.get("attacker").asInt();
+				var battleNum = node.get("battleNum").asInt();
+				BeatheOtherApplication.lobbyManager.GetBattle(battleNum).Attack(attacker, dmg);
+				int enemyLife = BeatheOtherApplication.lobbyManager.GetBattle(battleNum).GetEnemy(attacker).getLife();
+				session.sendMessage(new TextMessage(String.valueOf(enemyLife)));
+				break;		
 		}
 		
 		

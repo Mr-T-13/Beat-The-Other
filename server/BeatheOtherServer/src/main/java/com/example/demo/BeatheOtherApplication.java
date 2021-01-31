@@ -15,11 +15,14 @@ import org.springframework.web.socket.config.annotation.*;
 @EnableWebSocket
 public class BeatheOtherApplication implements WebSocketConfigurer {
 	
+	public static LobbyManager lobbyManager = new LobbyManager();
+		
 	@Override
 	public void registerWebSocketHandlers(
 	WebSocketHandlerRegistry registry) {
 	registry.addHandler(characterHandler(), "/character").setAllowedOrigins("*");
 	registry.addHandler(battleHandler(), "/battle").setAllowedOrigins("*");
+	registry.addHandler(lobbyHandler(), "/lobby").setAllowedOrigins("*");
 	
 	}
 	
@@ -31,6 +34,11 @@ public class BeatheOtherApplication implements WebSocketConfigurer {
 	@Bean
 	public WebSocketBattleHandler battleHandler() {
 	return new WebSocketBattleHandler();
+	}
+	
+	@Bean
+	public WebSocketLobbyHandler lobbyHandler() {
+	return new WebSocketLobbyHandler();
 	}
 
 	public static void main(String[] args) {

@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import org.springframework.web.socket.WebSocketSession;
+
 //La clase Battle es una sala, cuenta con 2 jugadores y las funciones necesarias para atacar
 public class Battle {
 	private int battleNum;
@@ -16,31 +18,41 @@ public class Battle {
 		ResetBattle();
 	}
 	
+	public Character GetCharacter(int n)
+	{
+		return(n==1?player1:player2);
+	}
+	
+	public Character GetEnemy(int n)
+	{
+		return(n==1?player2:player1);
+	}
+	
 	//Resetea una sala a los valores iniciales (la vacía).
 	public void ResetBattle()
 	{
 		player1.setCombo(0);
 		player1.setLife(vidaMax);
-		player1.setUserID(-1);
+		player1.setUserSession(null);
 		
 		player2.setCombo(0);
 		player2.setLife(vidaMax);
-		player2.setUserID(-1);
+		player2.setUserSession(null);
 	}
 	
-	public int Join(int userID)
+	public int Join(WebSocketSession s)
 	{
 		//Si la sala está llena, devuelvo -1
-		if( player1.getUserID() != -1 && player2.getUserID() != -1)
+		if( player1.getUserSession() != null && player2.getUserSession() != null)
 			return -1;
-		if(player1.getUserID() != -1)
+		if(player1.getUserSession() != null)
 		{
-			player1.setUserID(userID);
+			player1.setUserSession(s);
 			return 1;
 		}
-		else if(player2.getUserID() != -1)
+		else if(player2.getUserSession() != null)
 		{
-			player2.setUserID(userID);
+			player2.setUserSession(s);
 			return 2;
 		}
 		

@@ -10,6 +10,7 @@ public class Character {
 	Character(int life){
 		this.life=life;
 		combo=0;
+		session = null;
 	}
 
 	public int getLife() {
@@ -35,5 +36,11 @@ public class Character {
 	public WebSocketSession getUserSession()
 	{
 		return this.session;
+	}
+	public void ResetCharacter(int life)
+	{
+		this.life = life;
+		this.combo =0;
+		this.session = null;
 	}
 }

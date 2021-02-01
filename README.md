@@ -184,6 +184,10 @@ En esta pantalla se encuentran los dos jugadores a ambos lados de la pantalla co
 ## 5.5.- Instrucciones para ejecutar la aplicación
 Para poder abrir el juego necesitas la extensión de Chrome 200 OK y abrir la dirección 'src/main/resources/static', la URL necesaria es 'http://127.0.0.1:8887/src/'
 
+## 5.6.- Protocolo de WebSocket
+Bajo el entorno de Eclipse STS, se ha utilizado la implementación de Jackson. Las funciones utilizadas son principalmente send() incluyendo json generados inline. Dicha implementación ha sido posible graicas a la aplicación de los contenidos vistos en clase en los Temas 4 y 5. 
+Por otra parte, en javascript se utilizan unas funciones onclose() y onmessage() desde la cual se reciben todas las intrucciones recibidas desde el servidor y que se catalogan según su token y sus parámetros. 
+
 # 6.- Arte
 
 Como ya se ha ido mencionado en apartados anteriores, el juego bebe de elementos urbanos y callejeros. Por tanto, se intentará reflejar este espacio urbanita y elementos característicos de él, ya sea tanto en los propios personajes como en los escenarios.

@@ -14,7 +14,11 @@ public class WebSocketBattleHandler extends TextWebSocketHandler{
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 		JsonNode node = mapper.readTree(message.getPayload());
 		
-		switch(node.get("Order").asText())
+		/*Se ha unificado en un solo ws, aunque lo más óptimo habría sido tener varios. Me rompe el sistema de clases hacerlo así, pero es lo
+		 * que hay por tiempo chicos. Jesús.
+		 * 
+		 * 
+		 * switch(node.get("Order").asText())
 		{
 			case "Attack":
 				var dmg = node.get("dmg").asInt();
@@ -26,7 +30,7 @@ public class WebSocketBattleHandler extends TextWebSocketHandler{
 				session.sendMessage(new TextMessage("{\"enemyLife\" : \"" + enemyLife +"\", \"playerLife\" : \"" + playerLife + "\"}"));
 				BeatheOtherApplication.lobbyManager.GetBattle(battleNum).GetEnemy(attacker).getUserSession().sendMessage(new TextMessage("{\"enemyLife\" : \"" + playerLife +"\", \"playerLife\" : \"" + enemyLife + "\"}"));
 				break;		
-		}
+		}*/
 		
 		
 	}

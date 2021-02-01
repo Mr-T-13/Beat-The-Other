@@ -20,25 +20,12 @@ public class BeatheOtherApplication implements WebSocketConfigurer {
 	@Override
 	public void registerWebSocketHandlers(
 	WebSocketHandlerRegistry registry) {
-	registry.addHandler(characterHandler(), "/character").setAllowedOrigins("*");
-	registry.addHandler(battleHandler(), "/battle").setAllowedOrigins("*");
-	registry.addHandler(lobbyHandler(), "/lobby").setAllowedOrigins("*");
-	
-	}
-	
-	@Bean
-	public WebSocketCharacterHandler characterHandler() {
-	return new WebSocketCharacterHandler();
-	}
-	
-	@Bean
-	public WebSocketBattleHandler battleHandler() {
-	return new WebSocketBattleHandler();
+	registry.addHandler(lobbyHandler(), "/wsMgr").setAllowedOrigins("*");
 	}
 	
 	@Bean
 	public WebSocketLobbyHandler lobbyHandler() {
-	return new WebSocketLobbyHandler();
+		return new WebSocketLobbyHandler();
 	}
 
 	public static void main(String[] args) {

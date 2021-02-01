@@ -32,6 +32,16 @@ public class WebSocketLobbyHandler extends TextWebSocketHandler{
 				JsonNode e = mapper.valueToTree(BeatheOtherApplication.lobbyManager.GetBattles());
 				session.sendMessage(new TextMessage(e.asText()));
 				break;
+			case "Attack":
+				var dmg = node.get("dmg").asInt();
+				var attacker = node.get("attacker").asInt();
+				var battleNum2 = node.get("battleNum").asInt();
+				BeatheOtherApplication.lobbyManager.GetBattle(battleNum2).Attack(attacker, dmg);
+				var enemyLife = String.valueOf(BeatheOtherApplication.lobbyManager.GetBattle(battleNum2).GetEnemy(attacker).getLife());
+				var playerLife = String.valueOf(BeatheOtherApplication.lobbyManager.GetBattle(battleNum2).GetCharacter(attacker).getLife());
+				session.sendMessage(new TextMessage("{\"enemyLife\" : \"" + enemyLife +"\", \"playerLife\" : \"" + playerLife + "\"}"));
+				BeatheOtherApplication.lobbyManager.GetBattle(battleNum2).GetEnemy(attacker).getUserSession().sendMessage(new TextMessage("{\"enemyLife\" : \"" + playerLife +"\", \"playerLife\" : \"" + enemyLife + "\"}"));
+				break;		
 		}
 		
 		

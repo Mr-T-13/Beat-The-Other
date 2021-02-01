@@ -33,6 +33,8 @@ var playerN;
 var battleN;
 var enemyLife;
 var playerLife;
+var enemyCombo;
+var playerCombo;
 
 //Variables mascota
 var clicks=0;
@@ -46,9 +48,7 @@ var scoreText;
 var saco;
 
 //WebSocket
-var connection = new WebSocket('ws://127.0.0.1:8080/lobby');
-
-var connection2 = new WebSocket('ws://127.0.0.1:8080/battle');
+var connection = new WebSocket('ws://127.0.0.1:8080/wsMgr');
 
 connection.onmessage = function(msg) {
     console.log("WS message: " + msg.data);
@@ -60,10 +60,16 @@ connection.onmessage = function(msg) {
     } else if(msg.data == '-1'){
         console.log("La sala está llena");
     } else{
-
-    }            
-    
-
-
+        var obj = JSON.parse(msg.data);
+        enemyLife = obj.enemyLife;
+        playerLife = obj.playerLife;
+        enemyCombo = obj.enemyCombo;
+        playerCombo = obj.playerCombo;
+    }           
 };
+
+connection.onclose = function() {
+    console.log("se ha cerrado");
+    connection.send('{"Order":"Leave", "playerN" : ' + playerN + ', "battleN":' + battleN + '}');
+}
 

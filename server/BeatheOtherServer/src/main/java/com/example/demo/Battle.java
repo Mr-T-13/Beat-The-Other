@@ -65,6 +65,7 @@ public class Battle {
 		if(attacker == 1)
 		{
 			player2.setLife(player2.getLife()-dmg);
+			player1.setCombo(player1.getCombo() + 2);
 			if(player2.getLife() <0) 
 				player2.setLife(0);
 			return player2.getLife();
@@ -72,6 +73,7 @@ public class Battle {
 		else
 		{
 			player1.setLife(player1.getLife()-dmg);
+			player2.setCombo(player2.getCombo() + 2);
 			if(player1.getLife() <0) 
 				player1.setLife(0);
 			return player1.getLife();

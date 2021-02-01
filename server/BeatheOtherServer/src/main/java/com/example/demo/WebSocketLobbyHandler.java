@@ -26,7 +26,10 @@ public class WebSocketLobbyHandler extends TextWebSocketHandler{
 			case "Leave":
 				var battleNum = node.get("battleN").asInt();
 				var playerN = node.get("playerN").asInt();
-				BeatheOtherApplication.lobbyManager.LeaveBattle(playerN, playerN);
+				BeatheOtherApplication.lobbyManager.LeaveBattle(battleNum, playerN);
+				if(BeatheOtherApplication.lobbyManager.GetBattle(battleNum).GetCharacter(1).getUserSession() == null && BeatheOtherApplication.lobbyManager.GetBattle(battleNum).GetCharacter(2).getUserSession() == null) {
+					BeatheOtherApplication.lobbyManager.GetBattle(battleNum).ResetBattle();
+				}
 				break;
 			case "List":
 				JsonNode e = mapper.valueToTree(BeatheOtherApplication.lobbyManager.GetBattles());
@@ -39,8 +42,16 @@ public class WebSocketLobbyHandler extends TextWebSocketHandler{
 				BeatheOtherApplication.lobbyManager.GetBattle(battleNum2).Attack(attacker, dmg);
 				var enemyLife = String.valueOf(BeatheOtherApplication.lobbyManager.GetBattle(battleNum2).GetEnemy(attacker).getLife());
 				var playerLife = String.valueOf(BeatheOtherApplication.lobbyManager.GetBattle(battleNum2).GetCharacter(attacker).getLife());
-				session.sendMessage(new TextMessage("{\"enemyLife\" : \"" + enemyLife +"\", \"playerLife\" : \"" + playerLife + "\"}"));
-				BeatheOtherApplication.lobbyManager.GetBattle(battleNum2).GetEnemy(attacker).getUserSession().sendMessage(new TextMessage("{\"enemyLife\" : \"" + playerLife +"\", \"playerLife\" : \"" + enemyLife + "\"}"));
+				var enemyCombo = String.valueOf(BeatheOtherApplication.lobbyManager.GetBattle(battleNum2).GetEnemy(attacker).getCombo());
+				var playerCombo = String.valueOf(BeatheOtherApplication.lobbyManager.GetBattle(battleNum2).GetCharacter(attacker).getCombo());
+				session.sendMessage(new TextMessage("{\"enemyLife\" : \"" + enemyLife +"\","
+												  + " \"playerLife\" : \"" + playerLife + "\","
+												  + " \"enemyCombo\" : \"" + enemyCombo + "\","
+												  + " \"playerCombo\" : \"" + playerCombo + "\"}"));
+				BeatheOtherApplication.lobbyManager.GetBattle(battleNum2).GetEnemy(attacker).getUserSession().sendMessage(new TextMessage("{\"enemyLife\" : \"" + playerLife +"\","
+																																		  + " \"playerLife\" : \"" + enemyLife + "\","
+																																		  + " \"enemyCombo\" : \"" + playerCombo + "\","
+																																		  + " \"playerCombo\" : \"" + enemyCombo + "\"}"));
 				break;		
 		}
 		

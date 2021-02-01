@@ -41,7 +41,7 @@ export default class MainMenu extends Phaser.Scene{
 
         //MASCOTA
 
-        pet= this.physics.add.sprite(520, 50, 'pet');
+        pet= this.physics.add.sprite(700, 10, 'pet');
         pet.setOrigin(0,0);
         pet.setInteractive();
 

@@ -256,6 +256,8 @@ export default class Street extends Phaser.Scene{
         //GameLoop en proceso
         if(playerN == 1)
         {   
+            this.player2.life = enemyLife;
+            this.player2.energy = enemyCombo;
             if( this.player1.life != playerLife)
             {
                 this.player1.life = playerLife;
@@ -303,17 +305,17 @@ export default class Street extends Phaser.Scene{
                     {
                         //Resta vida al enemigo y aumenta la barra de energia dependiendo del multiplicador
                         var dmgTemp = this.player1.combo[this.player1.comboBoton].damage * this.player1.multiplicador;
-                        connection2.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum":' + battleN + '}');
+                        connection.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum":' + battleN + '}');
                         //this.player2.life -= this.player1.combo[this.player1.comboBoton].damage * this.player1.multiplicador;
                         this.player2.life = enemyLife;
-                        this.player1.energy += (2 * this.player1.multiplicador); 
+                        this.player1.energy = playerCombo; 
                     }else{
                         //Resta vida al enemigo y aumenta la barra de energia
                         var dmgTemp = this.player1.combo[this.player1.comboBoton].damage;
-                        connection2.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum":' + battleN + '}');
+                        connection.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum":' + battleN + '}');
                         //this.player2.life -= this.player1.combo[this.player1.comboBoton].damage;
                         this.player2.life = enemyLife;
-                        this.player1.energy += 2;
+                        this.player1.energy = playerCombo;
                     }
                     //Energia maxima para que no de error
                     if(this.player1.energy >= energyMax)
@@ -354,6 +356,8 @@ export default class Street extends Phaser.Scene{
         }
         if(playerN == 2)
         {   
+            this.player1.life = enemyLife;
+            this.player1.energy = enemyCombo;
             if(this.player2.life != playerLife)
             {
                 this.player2.life = playerLife;
@@ -402,17 +406,17 @@ export default class Street extends Phaser.Scene{
                     {
                         //Resta vida al enemigo y aumenta la barra de energia dependiendo del multiplicador
                         var dmgTemp = this.player2.combo[this.player2.comboBoton].damage * this.player2.multiplicador;
-                        connection2.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum": ' + battleN + '}');
+                        connection.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum": ' + battleN + '}');
                         //this.player1.life -= this.player2.combo[this.player1.comboBoton].damage * this.player2.multiplicador;
                         this.player1.life = enemyLife;
-                        this.player2.energy += (2 * this.player2.multiplicador); 
+                        this.player2.energy = playerCombo; 
                     }else{
                         //Resta vida al enemigo y aumenta la barra de energia
                         var dmgTemp = this.player2.combo[this.player2.comboBoton].damage;
-                        connection2.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum":' + battleN + '}');
+                        connection.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum":' + battleN + '}');
                         //this.player1.life -= this.player2.combo[this.player1.comboBoton].damage;
                         this.player1.life = enemyLife;
-                        this.player2.energy += 2;
+                        this.player2.energy = playerCombo;
                     }
                     //Energia maxima para que no de error
                     if(this.player2.energy >= energyMax)
@@ -457,13 +461,14 @@ export default class Street extends Phaser.Scene{
             this.scene.start('Victoryp2');
         else if (this.player2.life <=0)
             this.scene.start('Victoryp1');
-
+/*
         connection2.onmessage = function(msg) {
             console.log(msg.data);
             var obj = JSON.parse(msg.data);
             enemyLife = obj.enemyLife;
             playerLife = obj.playerLife;
-        };
+        };*/
         
     }
+    
 }

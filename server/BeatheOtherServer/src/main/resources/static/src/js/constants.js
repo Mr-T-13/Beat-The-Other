@@ -30,6 +30,7 @@ var username;
 var lastUsers;
 var logged;
 var playerN;
+var battleN;
 var enemyLife;
 var playerLife;
 

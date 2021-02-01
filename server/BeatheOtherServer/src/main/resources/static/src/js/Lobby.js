@@ -37,30 +37,35 @@ export default class Lobby extends Phaser.Scene{
 
         var botonEntrar1 = this.physics.add.sprite(795,152, 'entrar');
         botonEntrar1.setInteractive();
-        botonEntrar1.on('pointerdown', () => { 
+        botonEntrar1.on('pointerdown', () => {
+            battleN = 0; 
             connection.send('{"Order":"Join","battleN":"0"}');
         })
 
         var botonEntrar2 = this.physics.add.sprite(795,254, 'entrar');
         botonEntrar2.setInteractive();
         botonEntrar2.on('pointerdown', () => { 
+            battleN = 1; 
             connection.send('{"Order":"Join","battleN":"1"}');
         })
 
         var botonEntrar3 = this.physics.add.sprite(795,356, 'entrar');
         botonEntrar3.setInteractive();
         botonEntrar3.on('pointerdown', () => { 
+            battleN = 2; 
             connection.send('{"Order":"Join","battleN":"2"}');
         })
         var botonEntrar4 = this.physics.add.sprite(795,458, 'entrar');
         botonEntrar4.setInteractive();
         botonEntrar4.on('pointerdown', () => { 
+            battleN = 3; 
             connection.send('{"Order":"Join","battleN":"3"}');
         })
 
         var botonEntrar5 = this.physics.add.sprite(795,560, 'entrar');
         botonEntrar5.setInteractive();
         botonEntrar5.on('pointerdown', () => { 
+            battleN = 4; 
             connection.send('{"Order":"Join","battleN":"4"}');
         })
 

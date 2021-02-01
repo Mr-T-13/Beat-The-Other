@@ -255,10 +255,14 @@ export default class Street extends Phaser.Scene{
     {
         //GameLoop en proceso
         if(playerN == 1)
-        {
-            this.player1.life = playerLife;
-            this.player1.lifeStatus = lifeBarMaxFrame - this.player1.life;
-            this.player1.lifeBar.setFrame(this.player1.lifeStatus);
+        {   
+            if( this.player1.life != playerLife)
+            {
+                this.player1.life = playerLife;
+                this.player1.lifeStatus = lifeBarMaxFrame - this.player1.life;
+                this.player1.lifeBar.setFrame(this.player1.lifeStatus);
+                this.player2.character.phsx.anims.play(this.player2.character.punch, true); //Animacion de ataque
+            }
 
             //Si P1 ha hecho el combo completo
             if(this.player1.comboBoton == 4)
@@ -299,14 +303,14 @@ export default class Street extends Phaser.Scene{
                     {
                         //Resta vida al enemigo y aumenta la barra de energia dependiendo del multiplicador
                         var dmgTemp = this.player1.combo[this.player1.comboBoton].damage * this.player1.multiplicador;
-                        connection2.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum":"0"}');
+                        connection2.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum":' + battleN + '}');
                         //this.player2.life -= this.player1.combo[this.player1.comboBoton].damage * this.player1.multiplicador;
                         this.player2.life = enemyLife;
                         this.player1.energy += (2 * this.player1.multiplicador); 
                     }else{
                         //Resta vida al enemigo y aumenta la barra de energia
                         var dmgTemp = this.player1.combo[this.player1.comboBoton].damage;
-                        connection2.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum":"0"}');
+                        connection2.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum":' + battleN + '}');
                         //this.player2.life -= this.player1.combo[this.player1.comboBoton].damage;
                         this.player2.life = enemyLife;
                         this.player1.energy += 2;
@@ -350,9 +354,13 @@ export default class Street extends Phaser.Scene{
         }
         if(playerN == 2)
         {   
-            this.player2.life = playerLife;
-            this.player2.lifeStatus = lifeBarMaxFrame - this.player2.life;
-            this.player2.lifeBar.setFrame(this.player2.lifeStatus);
+            if(this.player2.life != playerLife)
+            {
+                this.player2.life = playerLife;
+                this.player2.lifeStatus = lifeBarMaxFrame - this.player2.life;
+                this.player2.lifeBar.setFrame(this.player2.lifeStatus);
+                this.player1.character.phsx.anims.play(this.player1.character.punch, true); //Animacion de ataque
+            }
 
             //Si P2 ha hecho el combo completo
             if(this.player2.comboBoton == 4)
@@ -376,7 +384,7 @@ export default class Street extends Phaser.Scene{
                     this.player2.spritesBotones[i] = this.add.sprite(posBoton2X + (posNextBoton * i), posBoton2Y, this.player2.combo[i].sprite);
                     this.player2.spritesBotones[i].setScale(3);
                     this.player2.spritesLetras[i]= this.add.sprite(this.player2.spritesBotones[i].x , this.player2.spritesBotones[i].y, this.player2.combo[i].text);
-                    this.player2.spritesLetras[i].setFrame(random+4);
+                    this.player2.spritesLetras[i].setFrame(random /*+4*/);
                 }
             }
 
@@ -394,14 +402,14 @@ export default class Street extends Phaser.Scene{
                     {
                         //Resta vida al enemigo y aumenta la barra de energia dependiendo del multiplicador
                         var dmgTemp = this.player2.combo[this.player2.comboBoton].damage * this.player2.multiplicador;
-                        connection2.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum":"0"}');
+                        connection2.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum": ' + battleN + '}');
                         //this.player1.life -= this.player2.combo[this.player1.comboBoton].damage * this.player2.multiplicador;
                         this.player1.life = enemyLife;
                         this.player2.energy += (2 * this.player2.multiplicador); 
                     }else{
                         //Resta vida al enemigo y aumenta la barra de energia
                         var dmgTemp = this.player2.combo[this.player2.comboBoton].damage;
-                        connection2.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum":"0"}');
+                        connection2.send('{"Order":"Attack","dmg": ' + dmgTemp +', "attacker" : ' + playerN + ', "battleNum":' + battleN + '}');
                         //this.player1.life -= this.player2.combo[this.player1.comboBoton].damage;
                         this.player1.life = enemyLife;
                         this.player2.energy += 2;
@@ -436,7 +444,7 @@ export default class Street extends Phaser.Scene{
                         this.player2.spritesBotones[i] = this.add.sprite(posBoton2X + (posNextBoton * i), posBoton2Y, this.player2.combo[i].sprite);
                         this.player2.spritesBotones[i].setScale(3);
                         this.player2.spritesLetras[i]= this.add.sprite(this.player2.spritesBotones[i].x , this.player2.spritesBotones[i].y, this.player2.combo[i].text);
-                        this.player2.spritesLetras[i].setFrame(random + 4);
+                        this.player2.spritesLetras[i].setFrame(random /*+ 4*/);
                     }
 
                     this.player2.penalizacion= time + 1000; //1000 = 1 segundo de penalizacion

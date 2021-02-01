@@ -28,20 +28,20 @@ export default class MainMenu extends Phaser.Scene{
         var bg = this.add.image(0, 0, 'backgroundm');
         bg.setOrigin(0,0);
         
-        var menuSprite = this.add.sprite(600,400,'Menu');
+        var menuSprite = this.add.sprite(600,250,'Menu');
         menuSprite.setScale(4);
         
-        var botonJugar = this.physics.add.sprite(595,510, 'Jugar');
+        var botonJugar = this.physics.add.sprite(595,360, 'Jugar');
         botonJugar.setInteractive();
-        botonJugar.on('pointerdown', () => { this.scene.start('Cooperative');})
+        botonJugar.on('pointerdown', () => { this.scene.start('Lobby');})
         
-        var botonOpc = this.physics.add.sprite(595,310, 'Red');
+        var botonOpc = this.physics.add.sprite(595,160, 'Red');
         botonOpc.setInteractive();
         botonOpc.on('pointerdown', () => { this.scene.start('Userlist');})
 
         //MASCOTA
 
-        pet= this.physics.add.sprite(520, 100, 'pet');
+        pet= this.physics.add.sprite(520, 50, 'pet');
         pet.setOrigin(0,0);
         pet.setInteractive();
 

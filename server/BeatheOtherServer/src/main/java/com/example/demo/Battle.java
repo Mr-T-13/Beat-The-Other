@@ -45,12 +45,12 @@ public class Battle {
 		//Si la sala está llena, devuelvo -1
 		if( player1.getUserSession() != null && player2.getUserSession() != null)
 			return -1;
-		if(player1.getUserSession() != null)
+		if(player1.getUserSession() == null)
 		{
 			player1.setUserSession(s);
 			return 1;
 		}
-		else if(player2.getUserSession() != null)
+		else if(player2.getUserSession() == null)
 		{
 			player2.setUserSession(s);
 			return 2;

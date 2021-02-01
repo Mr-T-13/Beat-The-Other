@@ -4,11 +4,12 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class WebSocketLobbyHandler extends TextWebSocketHandler{
-	private ObjectMapper mapper = new ObjectMapper();
+	private ObjectMapper mapper = new ObjectMapper().enable(DeserializationFeature.FAIL_ON_TRAILING_TOKENS);
 	
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
@@ -20,6 +21,7 @@ public class WebSocketLobbyHandler extends TextWebSocketHandler{
 				var battleN = node.get("battleN").asInt();
 				int player = BeatheOtherApplication.lobbyManager.JoinBattle(battleN, session);
 				session.sendMessage(new TextMessage(String.valueOf(player)));
+				System.out.println(player);
 				break;
 			case "Leave":
 				var battleNum = node.get("battleN").asInt();

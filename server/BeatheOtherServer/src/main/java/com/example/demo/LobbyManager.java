@@ -7,7 +7,9 @@ public class LobbyManager extends BeatheOtherApplication {
 	private Battle [] battles = new Battle[5];
 	
 	LobbyManager() {
-		
+		for(int i = 0 ; i<5; i++) {
+			battles[i] = new Battle();
+		}
 	}
 	
 	public Battle GetBattle(int n)

@@ -29,6 +29,7 @@ var posLifeP2Y  = 100;
 var username;
 var lastUsers;
 var logged;
+var playerN;
 
 //Variables mascota
 var clicks=0;

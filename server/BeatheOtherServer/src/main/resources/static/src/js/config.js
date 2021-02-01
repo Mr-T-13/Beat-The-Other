@@ -7,6 +7,7 @@ import Victoryp2 from './Victoryp2.js';
 import Userlist from './Userlist.js';
 import Registro from './Registro.js';
 import Cooperative from './Cooperative.js';
+import Lobby from './Lobby.js';
 
 var game = new Phaser.Game({
     type: Phaser.AUTO,
@@ -22,5 +23,5 @@ var game = new Phaser.Game({
     dom: {
         createContainer: true
     },
-    scene: [Login, MainMenu, Street, Victoryp1, Victoryp2, Userlist, Registro, Cooperative]
+    scene: [Login, MainMenu, Street, Victoryp1, Victoryp2, Userlist, Registro, Cooperative, Lobby]
 });

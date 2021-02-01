@@ -21,8 +21,10 @@ public class WebSocketBattleHandler extends TextWebSocketHandler{
 				var attacker = node.get("attacker").asInt();
 				var battleNum = node.get("battleNum").asInt();
 				BeatheOtherApplication.lobbyManager.GetBattle(battleNum).Attack(attacker, dmg);
-				int enemyLife = BeatheOtherApplication.lobbyManager.GetBattle(battleNum).GetEnemy(attacker).getLife();
-				session.sendMessage(new TextMessage(String.valueOf(enemyLife)));
+				var enemyLife = String.valueOf(BeatheOtherApplication.lobbyManager.GetBattle(battleNum).GetEnemy(attacker).getLife());
+				var playerLife = String.valueOf(BeatheOtherApplication.lobbyManager.GetBattle(battleNum).GetCharacter(attacker).getLife());
+				session.sendMessage(new TextMessage("{\"enemyLife\" : \"" + enemyLife +"\", \"playerLife\" : \"" + playerLife + "\"}"));
+				BeatheOtherApplication.lobbyManager.GetBattle(battleNum).GetEnemy(attacker).getUserSession().sendMessage(new TextMessage("{\"enemyLife\" : \"" + playerLife +"\", \"playerLife\" : \"" + enemyLife + "\"}"));
 				break;		
 		}
 		

@@ -26,7 +26,7 @@ export default class Lobby extends Phaser.Scene{
 
     create()
     {
-        var connection= new WebSocket('ws://127.0.0.1:8080/lobby');
+        /*var connection= new WebSocket('ws://127.0.0.1:8080/lobby');*/
 
         //Carga del fondo
         var bg = this.add.image(0, 0, 'backgroundm');
@@ -34,14 +34,6 @@ export default class Lobby extends Phaser.Scene{
 
         var bg = this.add.image(600, 250, 'fondo');
         var bg = this.add.image(600, 250, 'salas');
-
-        var message = {
-            "Order" : "Join",
-            "battleN" : "1"
-        };
-
-        var Order = "Join";
-        var battleN = 1;
 
         var botonEntrar1 = this.physics.add.sprite(795,152, 'entrar');
         botonEntrar1.setInteractive();
@@ -87,7 +79,7 @@ export default class Lobby extends Phaser.Scene{
         botonBck.setInteractive();
         botonBck.on('pointerdown', () => { this.scene.start('MainMenu');})
 
-
+/*
         connection.onmessage = function(msg) {
             console.log("WS message: " + msg.data);
             if(msg.data == '1'){
@@ -103,7 +95,7 @@ export default class Lobby extends Phaser.Scene{
            
         }
         
-        
+  */      
 
         
     }
